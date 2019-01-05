@@ -1,0 +1,39 @@
+{% extends "header.html" %}
+
+
+{% block body %}
+
+    <div class="container-fluid grid-fix">
+        <p class="display-4">Monitoring</p>
+
+        <div style="padding:15px;" id="curve_chart"></div> <!-- Graph -->
+
+<!-- Attempted Dynamic Server List -->      
+
+        <div style="padding:15px;" class="table-responsive">
+                <table class="table table-sm table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                        <th scope="col">Host</th>
+                        <th scope="col">Last Check</th>
+                        <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for host in HOST_DICT %}
+                        <tr class="">
+                        <td><a href="#" style="text-decoration: none; color: black;">{{ host }}</a></td>
+                        <td>{{ time_now }}</td>
+                        <td>Online</td>
+                        </tr>
+                        
+                    {% endfor %}
+                    
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+{% endblock %}

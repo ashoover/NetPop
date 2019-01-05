@@ -1,0 +1,20 @@
+{% extends "header.html" %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="text-center">
+            
+            <h1 class="display-4 text-muted">Woops, let's just keep this error between us. (404)</h1>
+            <img style="opacity: 0.1;" src="{{ url_for('static', filename='images/laugh-wink-solid.svg') }}" class="rounded mx-auto d-block figure-img img-fluid" width="128" height="128" alt="">
+            <button onclick="goBack()" class="btn btn-secondary">Go Back</button>
+
+            <script>
+                function goBack() {
+                window.history.back();
+                }
+            </script>
+        </div>
+    </div>
+
+{% endblock %}
