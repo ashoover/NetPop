@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash
 from np_config_list import HostList
 import time
 
@@ -7,6 +7,7 @@ HOST_DICT = HostList()
 time_now = time.strftime("%H:%M %m-%d-%Y")
 
 app = Flask(__name__)
+app.secret_key = 'my_secret_key'
 
 @app.route('/')
 def homepage():
@@ -15,6 +16,7 @@ def homepage():
 @app.route('/monitor/')
 def monitor():
     try:
+        flash("Not Logged In.")
         return render_template("monitor.html", HOST_DICT = HOST_DICT, time_now = time_now)
     except Exception as e:
         return render_template("error.html", error=e)

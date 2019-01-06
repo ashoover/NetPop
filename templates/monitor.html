@@ -6,17 +6,48 @@
     <div class="container-fluid grid-fix">
         <p class="display-4">Monitoring</p>
 
-        <div style="padding:15px;" id="curve_chart"></div> <!-- Graph -->
+<!-- start of quick view info -->
+
+
+
+<div class="card-group">
+  <div class="card">
+    <div class="card-body text-center text-success">
+      <h5 class="card-title">Hosts Up</h5>
+      <p class="card-text h1">6</p>
+    </div>
+  </div>
+    <div class="card">
+    <div class="card-body text-center text-warning">
+      <h5 class="card-title">Hosts Warning</h5>
+      <p class="card-text h1">2</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-body text-center text-danger">
+      <h5 class="card-title">Hosts Down</h5>
+      <p class="card-text h1">2</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+<!-- end of quick view info -->
+
+<!--        <div style="padding:15px;" id="curve_chart"></div> <!-- Graph  -->
+<br>
 
 <!-- Attempted Dynamic Server List -->      
 
-        <div style="padding:15px;" class="table-responsive">
+        <div class="table-responsive">
                 <table class="table table-sm table-hover">
                     <thead class="thead-light">
                         <tr>
-                        <th scope="col">Host</th>
-                        <th scope="col">Last Check</th>
-                        <th scope="col">Status</th>
+                            <th scope="col">Host</th>
+                            <th scope="col">Last Check</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
