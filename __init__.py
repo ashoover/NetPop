@@ -1,16 +1,26 @@
-from flask import Flask, render_template, flash, request
+from flask import Flask, render_template, flash, request, url_for, redirect, session
 from np_config_list import HostList
 import time
 from dbconnect import connection
 from wtforms import Form, validators, PasswordField, StringField
+from passlib.hash import sha256_crypt
+from pymysql import escape_string as thwart
+import gc
 
+
+# Random Variables
 HOST_DICT = HostList()
-
 time_now = time.strftime("%H:%M %m-%d-%Y")
 
+# Settings
 app = Flask(__name__)
 app.secret_key = 'my_secret_key'
 
+###
+# Routes
+###
+
+# Home Page
 @app.route('/')
 def homepage():
     return render_template("main.html")
@@ -20,7 +30,6 @@ def homepage():
 @app.route('/monitor/')
 def monitor():
     try:
-        flash("Not Logged In.")
         return render_template("monitor.html", HOST_DICT=HOST_DICT, time_now=time_now)
     except Exception as e:
         return render_template("error.html", error=e)
@@ -38,9 +47,11 @@ def settings():
 
 class RegistrationForm(Form):
     username = StringField('Username', [validators.Length(min=4, max=20)])
-    email = StringField('email', [validators.Length(min=6, max=50)])
+    email = StringField('Email Address', [validators.Length(min=6, max=50)])
     password = PasswordField('Password', [validators.DataRequired(),
                                             validators.EqualTo('confirm', message='Passwords must match.')])
+    confirm = PasswordField('Corfirm Password')
+
 
 @app.route('/login/', methods=['GET','POST'])
 def login(): 
@@ -52,8 +63,38 @@ def login():
 @app.route('/register/', methods=['GET','POST'])
 def register_page(): 
     try:
-        c, conn = connection()
-        return "ok"
+        form = RegistrationForm(request.form)
+        c,conn = connection()
+
+        if request.method == "POST" and form.validate():
+            username = form.username.data
+            email = form.email.data
+            password = sha256_crypt.hash((str(form.password.data)))
+
+            x = c.execute("SELECT * FROM users WHERE username = %s", (username,))
+
+            if int(x) > 0:
+                flash("Username taken. Try another!")
+                return render_template("register.html", form=form)
+
+            else:
+                c.execute("INSERT INTO users (username, password, email) VALUES (%s, %s, %s)",(thwart(username), thwart(password), thwart(email)))
+
+                conn.commit()
+
+                flash("Thanks for Registering")
+
+                c.close()
+                conn.close()
+                gc.collect()
+
+                session['logged_in'] = True
+                session['username'] = username
+
+            return redirect(url_for('monitor'))
+
+        return render_template("register.html", form=form)
+
     except Exception as e:
         return render_template("error.html", error=e)
 

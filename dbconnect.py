@@ -1,7 +1,7 @@
-import pymysql
+import pymysql.cursors
 
 def connection():
-    conn = pymysql.connect(host = "localhost",
+    conn = pymysql.connect( host = "localhost",
                             user = "ashoover",
                             passwd = "password",
                             db = "netpop")
