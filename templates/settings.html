@@ -10,13 +10,14 @@
         <p>User Administration</p>
         <br>
         <div class="shadow-none p-3 mb-5 bg-light rounded">Hosts</div>
-        <p>Hosts</p>
+        <a href="{{ url_for('add_endpoint') }}">Add an Endpoint</a>
         <br>
         <div class="shadow-none p-3 mb-5 bg-light rounded">Contacts</div>
         <p>Contacts</p>
         <br>
-        <div class="shadow-none p-3 mb-5 bg-light rounded">NetPop Settings</div>
-        <p>NetPop Settings</p>
+        <div class="shadow-none p-3 mb-5 bg-light rounded">NetPop Info</div>
+        <p>Session Admin Status : {{ session.admin_status }}</p>
+        <p>Session Rank : {{ session.user_rank }}</p>
         <br>
     </div>
 

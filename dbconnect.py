@@ -1,4 +1,5 @@
 import pymysql.cursors
+import gc
 
 def connection():
     conn = pymysql.connect( host = "localhost",
@@ -9,3 +10,5 @@ def connection():
     c = conn.cursor()
 
     return c, conn
+
+    

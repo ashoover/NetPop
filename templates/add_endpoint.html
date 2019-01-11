@@ -1,0 +1,31 @@
+{% extends "header.html" %}
+
+
+{% block body %}
+
+<div class="container-fluid grid-fix">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('settings') }}">Settings</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Add an Endpoint</li>
+        </ol>
+    </nav>
+    <br>
+    <p class="display-4">Add and Endpoint:</p>
+    <br>
+    <form>
+    <form action="" class="form-inline" method="post">
+        <input type="text" class="form-control" placeholder="Endpoint Name" name="endpoint_name" value="{{ request.form.endpoint_name }}">
+        <br>
+        <input type="text" class="form-control" placeholder="Hostname" name="hostname" value="{{ request.form.hostname }}">
+        <br>
+        <input type="text" class="form-control" placeholder="IP Address" name="ip_addr" value="{{ request.form.ip_addr }}">
+        <br>
+        <input type="text" class="form-control" placeholder="ZIP Code" name="zip_code" value="{{ request.form.zip_code }}">
+        <br>
+        <input class="btn btn-default" type="submit" value="Add Endpoint">
+    </form>
+
+</div>
+
+{% endblock %}
