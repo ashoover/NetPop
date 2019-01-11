@@ -11,8 +11,8 @@ Requirements :
 
 Ranks :
  - 1  Guest
- - 2  Monitor - Monitor Page Access Only
- - 3  Administrator (settings page)
+ - 2  Monitor - Monitor Page Access Only (Default)
+ - 3  Administrator (Settings Pages and must be set manually in the db)
 
  To Run : ``` python __init__.py ```
 

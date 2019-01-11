@@ -45,7 +45,7 @@
     {% if session.logged_in %}
         <ul class="nav navbar-nav">
           <li class="nav-item">
-              <span class="navbar-text"> Welcome, {{ session.username|capitalize }}&nbsp;&nbsp;&nbsp;</span>
+              <span class="navbar-text d-none d-lg-block"> Welcome, {{ session.username|capitalize }}&nbsp;&nbsp;&nbsp;</span>
           </li>
            <li class="nav-item">
               <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
@@ -54,10 +54,10 @@
     {% else %}
         <ul class="nav navbar-nav">
            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+              <a class="nav-link" href="{{ url_for('login_page') }}">Login</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
+              <a class="nav-link" href="{{ url_for('register_page') }}">Register</a>
           </li>
         </ul>
     {% endif %}
