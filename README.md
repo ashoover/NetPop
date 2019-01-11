@@ -6,7 +6,7 @@ Requirements :
  - PyMySQL-0.9.3
  - Flask-WTF-0.14.2
  - passlib-1.7.1
- - flask-executor-0.8.3
+ - flask-executor-0.8.3 
 
 
 Ranks :
