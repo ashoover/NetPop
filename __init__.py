@@ -1,18 +1,24 @@
-from flask import Flask, render_template, flash, request, url_for, redirect, session
+from flask import Flask, render_template, flash, request, url_for, redirect, session, g
 from np_config_list import HostList
 import time
 import logging
 from dbconnect import connection
+from checks import NP_DBStatus
+from quick_q import total_endpoints
 from wtforms import Form, validators, PasswordField, StringField
 from passlib.hash import sha256_crypt
 from pymysql import escape_string as thwart
 import gc
 from functools import wraps
 from flask_executor import Executor
+from os import urandom
 
 # Random Variables
 HOST_DICT = HostList()
 time_now = time.strftime("%H:%M %m-%d-%Y")
+db_status = NP_DBStatus()
+t_endpoints = total_endpoints()
+
 
 ####
 # Settings
@@ -26,13 +32,14 @@ logging.basicConfig(level=logging.DEBUG,
 
 # Flask Settings
 app = Flask(__name__)
-app.secret_key = 'my_secret_key'
+app.secret_key = urandom(24)
 app.debug = True
-app.config['EXECUTOR_MAX_WORKERS'] = 4
 
+# Executor Settings
+app.config['EXECUTOR_MAX_WORKERS'] = 4
 executor = Executor(app)
 
-
+# Admin Status Check
 def admin_check(c_name):
     c, conn = connection()
     u_name = c_name
@@ -55,8 +62,7 @@ def admin_check(c_name):
 
     return admin_status
 
-
-# Wrappers
+# Login Requied Wrapper
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -69,6 +75,7 @@ def login_required(f):
 
     return wrap
 
+# Admin Required Wrapper
 def admin_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -79,6 +86,7 @@ def admin_required(f):
             return redirect(url_for('access_denied'))
 
     return wrap
+
 
 ###
 # Routes
@@ -103,7 +111,6 @@ def logout():
 def login_page():
 
     try:
-        error = ""
         c, conn = connection()
 
         if request.method == "POST":
@@ -117,17 +124,22 @@ def login_page():
                 if admin_check(session['username']):
                     session['admin_status'] = True
 
-                flash("You are now logged in!")
+                flash(f"Welcome, {session['username'].capitalize()}! You are now logged in!")
 
                 return redirect(url_for('monitor'))
 
-        gc.collect()
+                gc.collect()
+
+        else:
+            
+            flash("Invalid Login.  Try Again.")
+            return render_template("login.html")
 
         return render_template("login.html")
 
     except Exception as e:
-        flash(f"Login Error.  Try Again!")
-        return render_template("login.html")
+        #flash(f"Login Error.  Try Again!")
+        return e
 
 
 # Registration Page
@@ -159,14 +171,15 @@ def register_page():
                 return render_template("register.html", form=form)
 
             else:
-                c.execute("INSERT INTO users (username, password, email, rank) VALUES (%s, %s, %s, %s)", (thwart(username),
+                c.execute("INSERT INTO users (username, password, email, rank) VALUES (%s, %s, %s, %s)", 
+                                                                                                (thwart(username),
                                                                                                 thwart(password),
                                                                                                 thwart(email),
                                                                                                 rank))
 
                 conn.commit()
 
-                flash(f"Thanks for registering {username}!")
+                flash(f"Thanks for registering {username.capitalize()}!")
 
                 c.close()
                 conn.close()
@@ -188,11 +201,29 @@ def register_page():
 @app.route('/monitor/')
 @login_required
 def monitor():
+    def total_endpoints():
+        try:
+            c, conn = connection()
+            c.execute("SELECT count(*) FROM endpoints;")
+            results = c.fetchone()
+            results = results[0]
+            c.close()
+            conn.close()
+            gc.collect()
+
+
+        except Exception:
+                results = 'e'
+
+        return results
+
     try:
-        return render_template("monitor.html", HOST_DICT=HOST_DICT, time_now=time_now)
+        return render_template("monitor.html", HOST_DICT=HOST_DICT
+                                            , time_now=time_now
+                                            ,t_endpoints=total_endpoints()
+                                            ,down_endpoints=total_endpoints())
     except Exception as e:
         return render_template("error.html", error=e)
-
 
 # Settings page
 @app.route('/settings/')
@@ -200,22 +231,69 @@ def monitor():
 @admin_required
 def settings():
     try:
-        return render_template("settings.html")
+        return render_template("settings.html", db_status=db_status)
 
     except Exception as e:
         return render_template("error.html", error=e)
-        
 
-@app.route('/add_endpoint/', methods=['GET', 'POST'])
+class AddEndpointForm(Form):
+    endpoint_name = StringField('Endpoint Name')
+    hostname = StringField('Hostname')
+    ip_addr = StringField('IP Address')
+    zip_code = StringField('Zip Code')
+
+# Add Endpoint
+@app.route('/add_endpoint/', methods=["GET", "POST"])
 @login_required
 @admin_required
 def add_endpoint():
     try:
-        return render_template("add_endpoint.html")
-    
+        form = AddEndpointForm(request.form)
+
+
+        if request.method == "POST":
+            c, conn = connection()
+
+            endpoint_name = form.endpoint_name.data
+            hostname = form.hostname.data
+            ip_addr = form.ip_addr.data
+            zip_code = form.zip_code.data
+
+            x = c.execute("SELECT * FROM endpoints WHERE hostname = %s", (hostname,))
+
+            if int(x) > 0:
+                flash(f"{endpoint_name.capitalize()} is already in the system.")
+                return render_template("add_endpoint.html", form=form)
+
+            else:
+                c.execute("INSERT INTO endpoints (endpoint_name, hostname, ip, zip, creation_date) VALUES (%s, %s, %s, %s, %s)", 
+                                                                                        (thwart(endpoint_name),
+                                                                                        thwart(hostname),
+                                                                                        thwart(ip_addr),
+                                                                                        thwart(zip_code),
+                                                                                        time.strftime("%H:%M:%S %m-%d-%Y")))
+
+            flash(f"{endpoint_name.capitalize()} has been added!")
+
+            return redirect(url_for('monitor'))
+
+        flash("Error Adding Endpoint.")
+        return render_template("add_endpoint.html", form=form)
+
     except Exception as e:
         return render_template("error.html", error=e)
 
+
+# Edit Endpoint
+@app.route('/edit_endpoint/', methods=['GET', 'POST'])
+@login_required
+@admin_required
+def edit_endpoint():
+    try:
+        return render_template("edit_endpoint.html")
+    
+    except Exception as e:
+        return render_template("error.html", error=e)
 
 # Error Handling
 @app.route('/access_denied/')

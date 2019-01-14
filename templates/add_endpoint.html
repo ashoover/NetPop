@@ -5,7 +5,11 @@
 
     <nav class="d-none d-lg-block" aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a class="text-muted" style="text-decoration: none;" href="{{ url_for('settings') }}">Settings</a></li>
+            <li class="breadcrumb-item">
+                <a class="text-muted" style="text-decoration: none;" href="{{ url_for('settings') }}">
+                    Settings
+                </a>
+            </li>
             <li class="breadcrumb-item active" aria-current="page">Add an Endpoint</li>
         </ol>
     </nav>
@@ -14,19 +18,20 @@
 
         <br>
         <p class="display-4">Add an Endpoint:</p>
-        <br>
-        <form>
-        <form action="" class="form-inline" method="post">
-            <input type="text" class="form-control" placeholder="Endpoint Name" name="endpoint_name" value="{{ request.form.endpoint_name }}">
-            <br>
-            <input type="text" class="form-control" placeholder="Hostname" name="hostname" value="{{ request.form.hostname }}">
-            <br>
-            <input type="text" class="form-control" placeholder="IP Address" name="ip_addr" value="{{ request.form.ip_addr }}">
-            <br>
-            <input type="text" class="form-control" placeholder="ZIP Code" name="zip_code" value="{{ request.form.zip_code }}">
-            <br>
-            <input class="btn btn-secondary" type="submit" value="Add Endpoint">
+    {% from "_formhelpers.html" import render_field %}
+    <form method=post action="/add_endpoint/">
+        <dl>
+            {{render_field(form.endpoint_name)}}
+            {{render_field(form.hostname)}}
+            {{render_field(form.ip_addr)}}
+            {{render_field(form.zip_code)}}
+        </dl>
+        <p><input type=submit value=Add Endpoint></p>
         </form>
+
+        {% if error %}
+            <p class="error"><strong>Error: </strong>{{error}}</p>
+        {% endif %}
 
     </div>
 

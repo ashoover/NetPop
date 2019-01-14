@@ -18,7 +18,13 @@
 
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
-                    <a href="{{ url_for('add_endpoint') }}">Add an Endpoint</a>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><a style="text-decoration: none; color: black;" href="{{ url_for('add_endpoint') }}">Add an Endpoint</a></li>
+                    <li class="list-group-item  d-flex justify-content-between align-items-center">
+                        <a style="text-decoration: none; color: black;" href="{{ url_for('edit_endpoint') }}">Edit an Endpoint</a>
+                        <span class="badge badge-secondary badge-pill">20</span>
+                        </li>
+                </ul>
                 </div>
             </div>
         </div>
@@ -32,8 +38,10 @@
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                    Contacts
-                    Contact Groups
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Contacts</li>
+                        <li class="list-group-item">Contact Groups</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -49,6 +57,7 @@
                 <div class="card-body">
                     <p><strong>Session Admin Status :</strong> {{ session.admin_status }}</p>
                     <p><strong>Session Rank :</strong>  {{ session.user_rank }}</p>
+                    <p><strong>Database Connection :</strong>  {{ db_status }}</p>
                 </div>
             </div>
             </div>
