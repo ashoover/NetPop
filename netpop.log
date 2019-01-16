@@ -3874,3 +3874,422 @@
 2019-01-14 01:49:12 - 127.0.0.1 - - [14/Jan/2019 01:49:12] "GET /static/favicon.ico HTTP/1.1" 200 -
 2019-01-14 01:49:46 - 127.0.0.1 - - [14/Jan/2019 01:49:46] "GET /monitor/ HTTP/1.1" 200 -
 2019-01-14 01:49:47 - 127.0.0.1 - - [14/Jan/2019 01:49:47] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-14 02:13:23 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\quick_q.py', reloading
+2019-01-14 02:13:23 -  * Restarting with stat
+2019-01-14 02:13:23 -  * Debugger is active!
+2019-01-14 02:13:23 -  * Debugger PIN: 180-616-779
+2019-01-14 02:13:23 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-14 02:13:32 - 127.0.0.1 - - [14/Jan/2019 02:13:32] "GET /monitor/ HTTP/1.1" 302 -
+2019-01-14 02:13:32 - 127.0.0.1 - - [14/Jan/2019 02:13:32] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 02:13:36 - 127.0.0.1 - - [14/Jan/2019 02:13:36] "POST /login/ HTTP/1.1" 302 -
+2019-01-14 02:13:36 - 127.0.0.1 - - [14/Jan/2019 02:13:36] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-14 02:14:11 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\__init__.py', reloading
+2019-01-14 02:14:11 -  * Restarting with stat
+2019-01-14 02:14:11 -  * Debugger is active!
+2019-01-14 02:14:11 -  * Debugger PIN: 180-616-779
+2019-01-14 02:14:11 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-14 02:15:32 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\__init__.py', reloading
+2019-01-14 02:15:32 -  * Restarting with stat
+2019-01-14 02:15:33 -  * Debugger is active!
+2019-01-14 02:15:33 -  * Debugger PIN: 180-616-779
+2019-01-14 02:15:33 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-14 02:15:35 - 127.0.0.1 - - [14/Jan/2019 02:15:35] "GET /monitor/ HTTP/1.1" 302 -
+2019-01-14 02:15:35 - 127.0.0.1 - - [14/Jan/2019 02:15:35] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 02:15:38 - 127.0.0.1 - - [14/Jan/2019 02:15:38] "POST /login/ HTTP/1.1" 302 -
+2019-01-14 02:15:38 - 127.0.0.1 - - [14/Jan/2019 02:15:38] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-14 19:19:27 -  * Restarting with stat
+2019-01-14 19:19:27 -  * Debugger is active!
+2019-01-14 19:19:27 -  * Debugger PIN: 180-616-779
+2019-01-14 19:19:27 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-14 19:19:30 - 127.0.0.1 - - [14/Jan/2019 19:19:30] "GET /monitor/ HTTP/1.1" 302 -
+2019-01-14 19:19:30 - 127.0.0.1 - - [14/Jan/2019 19:19:30] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 19:19:30 - 127.0.0.1 - - [14/Jan/2019 19:19:30] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2019-01-14 19:19:30 - 127.0.0.1 - - [14/Jan/2019 19:19:30] "GET /static/css/styles.css HTTP/1.1" 200 -
+2019-01-14 19:19:30 - 127.0.0.1 - - [14/Jan/2019 19:19:30] "GET /static/js/monitor_chart.js HTTP/1.1" 200 -
+2019-01-14 19:19:31 - 127.0.0.1 - - [14/Jan/2019 19:19:31] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2019-01-14 19:19:31 - 127.0.0.1 - - [14/Jan/2019 19:19:31] "GET /static/images/server-solid.svg HTTP/1.1" 200 -
+2019-01-14 19:19:31 - 127.0.0.1 - - [14/Jan/2019 19:19:31] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-14 19:19:36 - 127.0.0.1 - - [14/Jan/2019 19:19:36] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 19:19:40 - 127.0.0.1 - - [14/Jan/2019 19:19:40] "GET / HTTP/1.1" 200 -
+2019-01-14 19:19:42 - 127.0.0.1 - - [14/Jan/2019 19:19:42] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 19:20:02 - 127.0.0.1 - - [14/Jan/2019 19:20:02] "POST /login/ HTTP/1.1" 302 -
+2019-01-14 19:20:02 - 127.0.0.1 - - [14/Jan/2019 19:20:02] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-14 19:22:55 - 127.0.0.1 - - [14/Jan/2019 19:22:55] "GET /settings/ HTTP/1.1" 200 -
+2019-01-14 19:22:55 - 127.0.0.1 - - [14/Jan/2019 19:22:55] "GET /static/images/laugh-wink-solid.svg HTTP/1.1" 200 -
+2019-01-14 19:23:07 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\__init__.py', reloading
+2019-01-14 19:23:07 -  * Restarting with stat
+2019-01-14 19:23:08 -  * Debugger is active!
+2019-01-14 19:23:08 -  * Debugger PIN: 180-616-779
+2019-01-14 19:23:08 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-14 19:23:09 - 127.0.0.1 - - [14/Jan/2019 19:23:09] "GET /monitor/ HTTP/1.1" 302 -
+2019-01-14 19:23:09 - 127.0.0.1 - - [14/Jan/2019 19:23:09] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 19:23:11 - 127.0.0.1 - - [14/Jan/2019 19:23:11] "GET / HTTP/1.1" 200 -
+2019-01-14 19:23:14 - 127.0.0.1 - - [14/Jan/2019 19:23:14] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 19:23:20 - 127.0.0.1 - - [14/Jan/2019 19:23:20] "POST /login/ HTTP/1.1" 302 -
+2019-01-14 19:23:20 - 127.0.0.1 - - [14/Jan/2019 19:23:20] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-14 19:29:32 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\__init__.py', reloading
+2019-01-14 19:29:32 -  * Restarting with stat
+2019-01-14 19:43:50 -  * Restarting with stat
+2019-01-14 19:43:50 -  * Debugger is active!
+2019-01-14 19:43:50 -  * Debugger PIN: 180-616-779
+2019-01-14 19:43:50 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-14 19:43:54 - 127.0.0.1 - - [14/Jan/2019 19:43:54] "GET / HTTP/1.1" 200 -
+2019-01-14 19:43:56 - 127.0.0.1 - - [14/Jan/2019 19:43:56] "GET /login/ HTTP/1.1" 200 -
+2019-01-14 19:43:59 - 127.0.0.1 - - [14/Jan/2019 19:43:59] "POST /login/ HTTP/1.1" 302 -
+2019-01-14 19:43:59 - 127.0.0.1 - - [14/Jan/2019 19:43:59] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-14 20:20:34 -  * Restarting with stat
+2019-01-14 20:20:34 -  * Debugger is active!
+2019-01-14 20:20:34 -  * Debugger PIN: 180-616-779
+2019-01-14 20:20:34 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-14 20:33:10 - 127.0.0.1 - - [14/Jan/2019 20:33:10] "GET / HTTP/1.1" 200 -
+2019-01-14 20:33:11 - 127.0.0.1 - - [14/Jan/2019 20:33:11] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+2019-01-14 20:33:11 - 127.0.0.1 - - [14/Jan/2019 20:33:11] "GET /static/css/styles.css HTTP/1.1" 304 -
+2019-01-14 20:33:11 - 127.0.0.1 - - [14/Jan/2019 20:33:11] "GET /static/js/monitor_chart.js HTTP/1.1" 304 -
+2019-01-14 20:33:11 - 127.0.0.1 - - [14/Jan/2019 20:33:11] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+2019-01-14 20:33:11 - 127.0.0.1 - - [14/Jan/2019 20:33:11] "GET /static/images/server-solid.svg HTTP/1.1" 304 -
+2019-01-15 00:26:26 - 127.0.0.1 - - [15/Jan/2019 00:26:26] "GET / HTTP/1.1" 200 -
+2019-01-15 00:26:27 - 127.0.0.1 - - [15/Jan/2019 00:26:27] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-15 00:26:29 - 127.0.0.1 - - [15/Jan/2019 00:26:29] "GET /login/ HTTP/1.1" 200 -
+2019-01-15 00:26:40 - 127.0.0.1 - - [15/Jan/2019 00:26:40] "POST /login/ HTTP/1.1" 302 -
+2019-01-15 00:26:40 - 127.0.0.1 - - [15/Jan/2019 00:26:40] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 00:27:21 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 00:27:21 -  * Restarting with stat
+2019-01-15 00:27:22 -  * Debugger is active!
+2019-01-15 00:27:22 -  * Debugger PIN: 180-616-779
+2019-01-15 00:27:22 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 00:27:34 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 00:27:35 -  * Restarting with stat
+2019-01-15 00:27:35 -  * Debugger is active!
+2019-01-15 00:27:35 -  * Debugger PIN: 180-616-779
+2019-01-15 00:27:35 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 00:27:38 - 127.0.0.1 - - [15/Jan/2019 00:27:38] "GET / HTTP/1.1" 200 -
+2019-01-15 00:27:40 - 127.0.0.1 - - [15/Jan/2019 00:27:40] "GET /login/ HTTP/1.1" 200 -
+2019-01-15 00:27:44 - 127.0.0.1 - - [15/Jan/2019 00:27:44] "POST /login/ HTTP/1.1" 200 -
+2019-01-15 00:27:50 - 127.0.0.1 - - [15/Jan/2019 00:27:50] "POST /login/ HTTP/1.1" 200 -
+2019-01-15 00:27:53 - 127.0.0.1 - - [15/Jan/2019 00:27:53] "POST /login/ HTTP/1.1" 302 -
+2019-01-15 00:27:53 - 127.0.0.1 - - [15/Jan/2019 00:27:53] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 00:35:35 - 127.0.0.1 - - [15/Jan/2019 00:35:35] "GET /interactive/ HTTP/1.1" 200 -
+2019-01-15 00:35:37 - 127.0.0.1 - - [15/Jan/2019 00:35:37] "GET /interactive/?proglang=asdfa HTTP/1.1" 200 -
+2019-01-15 00:36:36 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 00:36:36 -  * Restarting with stat
+2019-01-15 00:36:36 -  * Debugger is active!
+2019-01-15 00:36:36 -  * Debugger PIN: 180-616-779
+2019-01-15 00:36:36 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 00:36:53 - 127.0.0.1 - - [15/Jan/2019 00:36:53] "GET /interactive/?proglang=asdfa HTTP/1.1" 200 -
+2019-01-15 00:36:53 - 127.0.0.1 - - [15/Jan/2019 00:36:53] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-15 00:36:54 - 127.0.0.1 - - [15/Jan/2019 00:36:54] "GET /interactive/?proglang=asdfa HTTP/1.1" 200 -
+2019-01-15 00:36:54 - 127.0.0.1 - - [15/Jan/2019 00:36:54] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-15 00:36:57 - 127.0.0.1 - - [15/Jan/2019 00:36:57] "GET /interactive/?proglang=asdfafd HTTP/1.1" 200 -
+2019-01-15 00:37:04 - 127.0.0.1 - - [15/Jan/2019 00:37:04] "GET /interactive/?proglang=asdfafd HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /interactive/?proglang=asdfafd HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/css/styles.css HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/js/monitor_chart.js HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/css/styles.css HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/js/monitor_chart.js HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/images/server-solid.svg HTTP/1.1" 200 -
+2019-01-15 00:37:05 - 127.0.0.1 - - [15/Jan/2019 00:37:05] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2019-01-15 00:37:06 - 127.0.0.1 - - [15/Jan/2019 00:37:06] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-15 00:37:07 - 127.0.0.1 - - [15/Jan/2019 00:37:07] "GET /interactive/?proglang=s HTTP/1.1" 200 -
+2019-01-15 00:37:16 - 127.0.0.1 - - [15/Jan/2019 00:37:16] "GET /static/js/bootstrap.min.js.map HTTP/1.1" 200 -
+2019-01-15 00:37:16 - 127.0.0.1 - - [15/Jan/2019 00:37:16] "GET /static/css/bootstrap.min.css.map HTTP/1.1" 200 -
+2019-01-15 00:38:29 - 127.0.0.1 - - [15/Jan/2019 00:38:29] "GET /interactive/?proglang=s HTTP/1.1" 200 -
+2019-01-15 00:38:29 - 127.0.0.1 - - [15/Jan/2019 00:38:29] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-15 00:38:53 - 127.0.0.1 - - [15/Jan/2019 00:38:53] "GET /interactive/?proglang= HTTP/1.1" 200 -
+2019-01-15 00:40:49 -  * Restarting with stat
+2019-01-15 00:40:50 -  * Debugger is active!
+2019-01-15 00:40:50 -  * Debugger PIN: 180-616-779
+2019-01-15 00:40:50 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 00:40:54 - 127.0.0.1 - - [15/Jan/2019 00:40:54] "GET /interactive/?proglang= HTTP/1.1" 200 -
+2019-01-15 00:40:54 - 127.0.0.1 - - [15/Jan/2019 00:40:54] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-15 00:42:14 - 127.0.0.1 - - [15/Jan/2019 00:42:14] "GET /interactive/?proglang= HTTP/1.1" 200 -
+2019-01-15 00:42:14 - 127.0.0.1 - - [15/Jan/2019 00:42:14] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-15 00:42:17 - 127.0.0.1 - - [15/Jan/2019 00:42:17] "GET /background_process?proglang=asdfa HTTP/1.1" 200 -
+2019-01-15 00:42:28 - 127.0.0.1 - - [15/Jan/2019 00:42:28] "GET /background_process?proglang=asss HTTP/1.1" 200 -
+2019-01-15 00:42:29 - 127.0.0.1 - - [15/Jan/2019 00:42:29] "GET /background_process?proglang=asss HTTP/1.1" 200 -
+2019-01-15 00:42:29 - 127.0.0.1 - - [15/Jan/2019 00:42:29] "GET /background_process?proglang=asss HTTP/1.1" 200 -
+2019-01-15 00:42:30 - 127.0.0.1 - - [15/Jan/2019 00:42:30] "GET /background_process?proglang=asss HTTP/1.1" 200 -
+2019-01-15 00:42:30 - 127.0.0.1 - - [15/Jan/2019 00:42:30] "GET /background_process?proglang=asss HTTP/1.1" 200 -
+2019-01-15 00:42:30 - 127.0.0.1 - - [15/Jan/2019 00:42:30] "GET /background_process?proglang=asss HTTP/1.1" 200 -
+2019-01-15 00:43:06 - 127.0.0.1 - - [15/Jan/2019 00:43:06] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 00:46:10 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 00:46:11 -  * Restarting with stat
+2019-01-15 00:46:11 -  * Debugger is active!
+2019-01-15 00:46:11 -  * Debugger PIN: 180-616-779
+2019-01-15 00:46:11 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 00:46:14 - 127.0.0.1 - - [15/Jan/2019 00:46:14] "GET /interactive/?proglang= HTTP/1.1" 200 -
+2019-01-15 00:46:14 - 127.0.0.1 - - [15/Jan/2019 00:46:14] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-15 00:46:16 - 127.0.0.1 - - [15/Jan/2019 00:46:16] "GET /background_process?proglang=a HTTP/1.1" 200 -
+2019-01-15 00:46:19 - 127.0.0.1 - - [15/Jan/2019 00:46:19] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 00:46:37 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 00:46:37 -  * Restarting with stat
+2019-01-15 00:46:37 -  * Debugger is active!
+2019-01-15 00:46:37 -  * Debugger PIN: 180-616-779
+2019-01-15 00:46:37 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 00:46:38 - 127.0.0.1 - - [15/Jan/2019 00:46:38] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 00:47:03 - 127.0.0.1 - - [15/Jan/2019 00:47:03] "GET /background_process?proglang=s HTTP/1.1" 200 -
+2019-01-15 00:47:05 - 127.0.0.1 - - [15/Jan/2019 00:47:05] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 00:47:18 - 127.0.0.1 - - [15/Jan/2019 00:47:18] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 00:47:19 - 127.0.0.1 - - [15/Jan/2019 00:47:19] "GET /background_process?proglang=pytho HTTP/1.1" 200 -
+2019-01-15 00:47:21 - 127.0.0.1 - - [15/Jan/2019 00:47:21] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 00:52:07 - 127.0.0.1 - - [15/Jan/2019 00:52:07] "GET /background_process?proglang=s HTTP/1.1" 200 -
+2019-01-15 00:52:16 - 127.0.0.1 - - [15/Jan/2019 00:52:16] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:01:53 -  * Restarting with stat
+2019-01-15 01:01:53 -  * Debugger is active!
+2019-01-15 01:01:53 -  * Debugger PIN: 180-616-779
+2019-01-15 01:01:53 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:01:58 - 127.0.0.1 - - [15/Jan/2019 01:01:58] "GET / HTTP/1.1" 200 -
+2019-01-15 01:01:58 - 127.0.0.1 - - [15/Jan/2019 01:01:58] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2019-01-15 01:01:58 - 127.0.0.1 - - [15/Jan/2019 01:01:58] "GET /static/css/styles.css HTTP/1.1" 200 -
+2019-01-15 01:01:58 - 127.0.0.1 - - [15/Jan/2019 01:01:58] "GET /static/js/monitor_chart.js HTTP/1.1" 200 -
+2019-01-15 01:01:58 - 127.0.0.1 - - [15/Jan/2019 01:01:58] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2019-01-15 01:01:58 - 127.0.0.1 - - [15/Jan/2019 01:01:58] "GET /static/images/server-solid.svg HTTP/1.1" 200 -
+2019-01-15 01:01:58 - 127.0.0.1 - - [15/Jan/2019 01:01:58] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-15 01:02:04 - 127.0.0.1 - - [15/Jan/2019 01:02:04] "GET /interactive/ HTTP/1.1" 200 -
+2019-01-15 01:02:10 - 127.0.0.1 - - [15/Jan/2019 01:02:10] "GET /background_process?proglang=n HTTP/1.1" 200 -
+2019-01-15 01:02:13 - 127.0.0.1 - - [15/Jan/2019 01:02:13] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:02:16 - 127.0.0.1 - - [15/Jan/2019 01:02:16] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:02:33 - 127.0.0.1 - - [15/Jan/2019 01:02:33] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:02:35 - 127.0.0.1 - - [15/Jan/2019 01:02:35] "GET /background_process?proglang=pytho HTTP/1.1" 200 -
+2019-01-15 01:02:38 - 127.0.0.1 - - [15/Jan/2019 01:02:38] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:02:55 - 127.0.0.1 - - [15/Jan/2019 01:02:55] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:02:57 - 127.0.0.1 - - [15/Jan/2019 01:02:57] "GET /background_process?proglang=asdf HTTP/1.1" 200 -
+2019-01-15 01:03:00 - 127.0.0.1 - - [15/Jan/2019 01:03:00] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:03:50 - 127.0.0.1 - - [15/Jan/2019 01:03:50] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:03:51 - 127.0.0.1 - - [15/Jan/2019 01:03:51] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:03:52 - 127.0.0.1 - - [15/Jan/2019 01:03:52] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:03:52 - 127.0.0.1 - - [15/Jan/2019 01:03:52] "GET /interactive/ HTTP/1.1" 200 -
+2019-01-15 01:03:55 - 127.0.0.1 - - [15/Jan/2019 01:03:55] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:04:35 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:04:35 -  * Restarting with stat
+2019-01-15 01:04:36 -  * Debugger is active!
+2019-01-15 01:04:36 -  * Debugger PIN: 180-616-779
+2019-01-15 01:04:36 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:04:37 - 127.0.0.1 - - [15/Jan/2019 01:04:37] "GET /interactive/ HTTP/1.1" 200 -
+2019-01-15 01:04:40 - 127.0.0.1 - - [15/Jan/2019 01:04:40] "GET /background_process?proglang=asdfafd HTTP/1.1" 200 -
+2019-01-15 01:04:43 - 127.0.0.1 - - [15/Jan/2019 01:04:43] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:04:45 - 127.0.0.1 - - [15/Jan/2019 01:04:45] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:04:45 - 127.0.0.1 - - [15/Jan/2019 01:04:45] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:04:47 - 127.0.0.1 - - [15/Jan/2019 01:04:47] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:04:47 - 127.0.0.1 - - [15/Jan/2019 01:04:47] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:04:47 - 127.0.0.1 - - [15/Jan/2019 01:04:47] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:10:10 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:10:10 -  * Restarting with stat
+2019-01-15 01:10:11 -  * Debugger is active!
+2019-01-15 01:10:11 -  * Debugger PIN: 180-616-779
+2019-01-15 01:10:11 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:10:13 - 127.0.0.1 - - [15/Jan/2019 01:10:13] "GET / HTTP/1.1" 200 -
+2019-01-15 01:10:15 - 127.0.0.1 - - [15/Jan/2019 01:10:15] "GET /login/ HTTP/1.1" 200 -
+2019-01-15 01:10:19 - 127.0.0.1 - - [15/Jan/2019 01:10:19] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 01:10:42 - 127.0.0.1 - - [15/Jan/2019 01:10:42] "POST /register/ HTTP/1.1" 200 -
+2019-01-15 01:10:42 - 127.0.0.1 - - [15/Jan/2019 01:10:42] "GET /static/images/laugh-wink-solid.svg HTTP/1.1" 200 -
+2019-01-15 01:11:32 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:11:32 -  * Restarting with stat
+2019-01-15 01:11:32 -  * Debugger is active!
+2019-01-15 01:11:32 -  * Debugger PIN: 180-616-779
+2019-01-15 01:11:32 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:11:34 - 127.0.0.1 - - [15/Jan/2019 01:11:34] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 01:11:42 - 127.0.0.1 - - [15/Jan/2019 01:11:42] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 01:11:42 - 127.0.0.1 - - [15/Jan/2019 01:11:42] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 01:16:25 - 127.0.0.1 - - [15/Jan/2019 01:16:25] "GET /logout/ HTTP/1.1" 302 -
+2019-01-15 01:16:25 - 127.0.0.1 - - [15/Jan/2019 01:16:25] "GET / HTTP/1.1" 200 -
+2019-01-15 01:16:31 - 127.0.0.1 - - [15/Jan/2019 01:16:31] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 01:16:46 - 127.0.0.1 - - [15/Jan/2019 01:16:46] "POST /register/ HTTP/1.1" 200 -
+2019-01-15 01:24:12 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:24:12 -  * Restarting with stat
+2019-01-15 01:26:12 -  * Restarting with stat
+2019-01-15 01:26:12 -  * Debugger is active!
+2019-01-15 01:26:12 -  * Debugger PIN: 180-616-779
+2019-01-15 01:26:12 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:26:16 - 127.0.0.1 - - [15/Jan/2019 01:26:16] "GET / HTTP/1.1" 200 -
+2019-01-15 01:26:20 - 127.0.0.1 - - [15/Jan/2019 01:26:20] "GET /sendmail/ HTTP/1.1" 200 -
+2019-01-15 01:26:20 - 127.0.0.1 - - [15/Jan/2019 01:26:20] "GET /static/images/laugh-wink-solid.svg HTTP/1.1" 200 -
+2019-01-15 01:26:56 - 127.0.0.1 - - [15/Jan/2019 01:26:56] "GET /send-mail/ HTTP/1.1" 200 -
+2019-01-15 01:26:56 - 127.0.0.1 - - [15/Jan/2019 01:26:56] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-15 01:28:56 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:28:56 -  * Restarting with stat
+2019-01-15 01:28:56 -  * Debugger is active!
+2019-01-15 01:28:56 -  * Debugger PIN: 180-616-779
+2019-01-15 01:28:56 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:29:04 - 127.0.0.1 - - [15/Jan/2019 01:29:04] "GET /send-mail/ HTTP/1.1" 200 -
+2019-01-15 01:29:04 - 127.0.0.1 - - [15/Jan/2019 01:29:04] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-15 01:29:54 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:29:54 -  * Restarting with stat
+2019-01-15 01:29:54 -  * Debugger is active!
+2019-01-15 01:29:54 -  * Debugger PIN: 180-616-779
+2019-01-15 01:29:54 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:30:00 - 127.0.0.1 - - [15/Jan/2019 01:30:00] "GET /send-mail/ HTTP/1.1" 200 -
+2019-01-15 01:30:00 - 127.0.0.1 - - [15/Jan/2019 01:30:00] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-15 01:30:52 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:30:52 -  * Restarting with stat
+2019-01-15 01:30:52 -  * Debugger is active!
+2019-01-15 01:30:52 -  * Debugger PIN: 180-616-779
+2019-01-15 01:30:52 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:31:03 - 127.0.0.1 - - [15/Jan/2019 01:31:03] "GET /send-mail/ HTTP/1.1" 200 -
+2019-01-15 01:31:03 - 127.0.0.1 - - [15/Jan/2019 01:31:03] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-15 01:32:17 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:32:17 -  * Restarting with stat
+2019-01-15 01:32:18 -  * Debugger is active!
+2019-01-15 01:32:18 -  * Debugger PIN: 180-616-779
+2019-01-15 01:32:18 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:32:32 - 127.0.0.1 - - [15/Jan/2019 01:32:32] "GET /send-mail/ HTTP/1.1" 200 -
+2019-01-15 01:32:32 - 127.0.0.1 - - [15/Jan/2019 01:32:32] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-15 01:32:37 - 127.0.0.1 - - [15/Jan/2019 01:32:37] "GET /send-mail/ HTTP/1.1" 200 -
+2019-01-15 01:32:37 - 127.0.0.1 - - [15/Jan/2019 01:32:37] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-15 01:33:08 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:33:08 -  * Restarting with stat
+2019-01-15 01:33:08 -  * Debugger is active!
+2019-01-15 01:33:08 -  * Debugger PIN: 180-616-779
+2019-01-15 01:33:08 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:33:19 - 127.0.0.1 - - [15/Jan/2019 01:33:19] "GET /send-mail/ HTTP/1.1" 200 -
+2019-01-15 01:33:19 - 127.0.0.1 - - [15/Jan/2019 01:33:19] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-15 01:43:07 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:43:07 -  * Restarting with stat
+2019-01-15 01:43:07 -  * Debugger is active!
+2019-01-15 01:43:07 -  * Debugger PIN: 180-616-779
+2019-01-15 01:43:07 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:43:31 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:43:31 -  * Restarting with stat
+2019-01-15 01:43:31 -  * Debugger is active!
+2019-01-15 01:43:31 -  * Debugger PIN: 180-616-779
+2019-01-15 01:43:31 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:43:54 - 127.0.0.1 - - [15/Jan/2019 01:43:54] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:43:54 - 127.0.0.1 - - [15/Jan/2019 01:43:54] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:43:55 - 127.0.0.1 - - [15/Jan/2019 01:43:55] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:43:55 - 127.0.0.1 - - [15/Jan/2019 01:43:55] "GET /background_process?proglang=python HTTP/1.1" 200 -
+2019-01-15 01:43:58 - 127.0.0.1 - - [15/Jan/2019 01:43:58] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 01:44:21 - 127.0.0.1 - - [15/Jan/2019 01:44:21] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 01:44:21 - 127.0.0.1 - - [15/Jan/2019 01:44:21] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 01:45:48 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:45:48 -  * Restarting with stat
+2019-01-15 01:50:16 -  * Restarting with stat
+2019-01-15 01:50:16 -  * Debugger is active!
+2019-01-15 01:50:16 -  * Debugger PIN: 180-616-779
+2019-01-15 01:50:16 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:50:21 - 127.0.0.1 - - [15/Jan/2019 01:50:21] "GET / HTTP/1.1" 200 -
+2019-01-15 01:50:24 - 127.0.0.1 - - [15/Jan/2019 01:50:24] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 01:50:41 - 127.0.0.1 - - [15/Jan/2019 01:50:41] "POST /register/ HTTP/1.1" 200 -
+2019-01-15 01:50:59 - 127.0.0.1 - - [15/Jan/2019 01:50:59] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 01:50:59 - 127.0.0.1 - - [15/Jan/2019 01:50:59] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 01:51:12 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:51:12 -  * Restarting with stat
+2019-01-15 01:51:12 -  * Debugger is active!
+2019-01-15 01:51:12 -  * Debugger PIN: 180-616-779
+2019-01-15 01:51:12 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:54:58 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:54:58 -  * Restarting with stat
+2019-01-15 01:54:58 -  * Debugger is active!
+2019-01-15 01:54:58 -  * Debugger PIN: 180-616-779
+2019-01-15 01:54:58 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:55:10 - 127.0.0.1 - - [15/Jan/2019 01:55:10] "GET / HTTP/1.1" 200 -
+2019-01-15 01:55:12 - 127.0.0.1 - - [15/Jan/2019 01:55:12] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 01:55:29 - 127.0.0.1 - - [15/Jan/2019 01:55:29] "POST /register/ HTTP/1.1" 200 -
+2019-01-15 01:57:56 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:57:56 -  * Restarting with stat
+2019-01-15 01:57:57 -  * Debugger is active!
+2019-01-15 01:57:57 -  * Debugger PIN: 180-616-779
+2019-01-15 01:57:57 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:59:04 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 01:59:04 -  * Restarting with stat
+2019-01-15 01:59:05 -  * Debugger is active!
+2019-01-15 01:59:05 -  * Debugger PIN: 180-616-779
+2019-01-15 01:59:05 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 01:59:11 - 127.0.0.1 - - [15/Jan/2019 01:59:11] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 01:59:17 - 127.0.0.1 - - [15/Jan/2019 01:59:17] "POST /register/ HTTP/1.1" 200 -
+2019-01-15 01:59:27 - 127.0.0.1 - - [15/Jan/2019 01:59:27] "POST /register/ HTTP/1.1" 200 -
+2019-01-15 02:01:25 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 02:01:25 -  * Restarting with stat
+2019-01-15 02:01:25 -  * Debugger is active!
+2019-01-15 02:01:25 -  * Debugger PIN: 180-616-779
+2019-01-15 02:01:25 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 02:01:39 - 127.0.0.1 - - [15/Jan/2019 02:01:39] "POST /register/ HTTP/1.1" 200 -
+2019-01-15 02:04:28 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 02:04:28 -  * Restarting with stat
+2019-01-15 02:04:29 -  * Debugger is active!
+2019-01-15 02:04:29 -  * Debugger PIN: 180-616-779
+2019-01-15 02:04:29 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 02:05:37 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 02:05:37 -  * Restarting with stat
+2019-01-15 02:05:37 -  * Debugger is active!
+2019-01-15 02:05:37 -  * Debugger PIN: 180-616-779
+2019-01-15 02:05:37 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 02:05:43 - 127.0.0.1 - - [15/Jan/2019 02:05:43] "GET / HTTP/1.1" 200 -
+2019-01-15 02:05:45 - 127.0.0.1 - - [15/Jan/2019 02:05:45] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 02:05:59 - 127.0.0.1 - - [15/Jan/2019 02:05:59] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 02:05:59 - 127.0.0.1 - - [15/Jan/2019 02:05:59] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 21:35:48 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 21:35:48 -  * Restarting with stat
+2019-01-15 21:35:50 -  * Debugger is active!
+2019-01-15 21:35:50 -  * Debugger PIN: 180-616-779
+2019-01-15 21:35:50 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 21:35:58 - 127.0.0.1 - - [15/Jan/2019 21:35:58] "GET / HTTP/1.1" 200 -
+2019-01-15 21:35:58 - 127.0.0.1 - - [15/Jan/2019 21:35:58] "GET /static/css/bootstrap.min.css HTTP/1.1" 304 -
+2019-01-15 21:35:58 - 127.0.0.1 - - [15/Jan/2019 21:35:58] "GET /static/css/styles.css HTTP/1.1" 304 -
+2019-01-15 21:35:59 - 127.0.0.1 - - [15/Jan/2019 21:35:59] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-15 21:35:59 - 127.0.0.1 - - [15/Jan/2019 21:35:59] "GET /static/js/monitor_chart.js HTTP/1.1" 304 -
+2019-01-15 21:35:59 - 127.0.0.1 - - [15/Jan/2019 21:35:59] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+2019-01-15 21:35:59 - 127.0.0.1 - - [15/Jan/2019 21:35:59] "GET /static/images/server-solid.svg HTTP/1.1" 304 -
+2019-01-15 21:36:02 - 127.0.0.1 - - [15/Jan/2019 21:36:02] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 21:36:26 - 127.0.0.1 - - [15/Jan/2019 21:36:26] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 21:36:26 - 127.0.0.1 - - [15/Jan/2019 21:36:26] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 21:37:26 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 21:37:26 -  * Restarting with stat
+2019-01-15 21:37:27 -  * Debugger is active!
+2019-01-15 21:37:27 -  * Debugger PIN: 180-616-779
+2019-01-15 21:37:27 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 21:37:28 - 127.0.0.1 - - [15/Jan/2019 21:37:28] "GET / HTTP/1.1" 200 -
+2019-01-15 21:37:30 - 127.0.0.1 - - [15/Jan/2019 21:37:30] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 21:37:44 - name 'username' is not defined
+2019-01-15 21:37:44 - 127.0.0.1 - - [15/Jan/2019 21:37:44] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 21:37:44 - 127.0.0.1 - - [15/Jan/2019 21:37:44] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 21:39:38 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 21:39:38 -  * Restarting with stat
+2019-01-15 21:39:39 -  * Debugger is active!
+2019-01-15 21:39:39 -  * Debugger PIN: 180-616-779
+2019-01-15 21:39:39 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 22:01:26 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 22:01:26 -  * Restarting with stat
+2019-01-15 22:01:27 -  * Debugger is active!
+2019-01-15 22:01:27 -  * Debugger PIN: 180-616-779
+2019-01-15 22:01:27 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 22:01:32 - 127.0.0.1 - - [15/Jan/2019 22:01:32] "GET / HTTP/1.1" 200 -
+2019-01-15 22:01:34 - 127.0.0.1 - - [15/Jan/2019 22:01:34] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 22:01:48 - name 'username' is not defined
+2019-01-15 22:01:48 - 127.0.0.1 - - [15/Jan/2019 22:01:48] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 22:01:48 - 127.0.0.1 - - [15/Jan/2019 22:01:48] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 22:03:33 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 22:03:33 -  * Restarting with stat
+2019-01-15 22:03:33 -  * Debugger is active!
+2019-01-15 22:03:33 -  * Debugger PIN: 180-616-779
+2019-01-15 22:03:33 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 22:04:28 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 22:04:28 -  * Restarting with stat
+2019-01-15 22:04:29 -  * Debugger is active!
+2019-01-15 22:04:29 -  * Debugger PIN: 180-616-779
+2019-01-15 22:04:29 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 22:04:33 - 127.0.0.1 - - [15/Jan/2019 22:04:33] "GET / HTTP/1.1" 200 -
+2019-01-15 22:04:57 - 127.0.0.1 - - [15/Jan/2019 22:04:57] "GET / HTTP/1.1" 200 -
+2019-01-15 22:04:58 - 127.0.0.1 - - [15/Jan/2019 22:04:58] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 22:05:14 - (1054, "Unknown column 'receipient' in 'field list'")
+2019-01-15 22:05:14 - 127.0.0.1 - - [15/Jan/2019 22:05:14] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 22:05:14 - 127.0.0.1 - - [15/Jan/2019 22:05:14] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 22:05:47 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-15 22:05:47 -  * Restarting with stat
+2019-01-15 22:05:48 -  * Debugger is active!
+2019-01-15 22:05:48 -  * Debugger PIN: 180-616-779
+2019-01-15 22:05:48 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-15 22:05:49 - 127.0.0.1 - - [15/Jan/2019 22:05:49] "GET / HTTP/1.1" 200 -
+2019-01-15 22:05:51 - 127.0.0.1 - - [15/Jan/2019 22:05:51] "GET /register/ HTTP/1.1" 200 -
+2019-01-15 22:06:07 - 127.0.0.1 - - [15/Jan/2019 22:06:07] "POST /register/ HTTP/1.1" 302 -
+2019-01-15 22:06:07 - 127.0.0.1 - - [15/Jan/2019 22:06:07] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 22:08:33 - 127.0.0.1 - - [15/Jan/2019 22:08:33] "GET / HTTP/1.1" 200 -
+2019-01-15 22:08:36 - 127.0.0.1 - - [15/Jan/2019 22:08:36] "GET /monitor/ HTTP/1.1" 200 -
+2019-01-15 22:09:34 - 127.0.0.1 - - [15/Jan/2019 22:09:34] "GET /favicon.ico HTTP/1.1" 200 -
+2019-01-16 01:35:58 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-16 01:35:59 -  * Restarting with stat
+2019-01-16 01:35:59 -  * Debugger is active!
+2019-01-16 01:35:59 -  * Debugger PIN: 180-616-779
+2019-01-16 01:35:59 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
