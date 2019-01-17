@@ -6,3 +6,4 @@ login.html.old
 *.log
 *.pyc
 __pycache__/quick_q.cpython-37.pyc
+netpop.log

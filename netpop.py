@@ -52,6 +52,7 @@ app.config['EXECUTOR_MAX_WORKERS'] = 4
 def admin_check(c_name):
     c, conn = connection()
     u_name = c_name
+    admin_status = False
 
     try:
         data = c.execute("SELECT * FROM users WHERE username = %s", u_name,)
@@ -65,6 +66,7 @@ def admin_check(c_name):
 
     except Exception:
         admin_status = False
+
     c.close()
     conn.close()
     gc.collect()
@@ -78,11 +80,11 @@ def contact_log(recip, message_type):
 
         c.execute("INSERT INTO cont_log (recipient, date_sent, message_type) VALUES (%s, %s, %s)", 
                                                                             (thwart(recip),
-                                                                            time.strftime("%H:%M:%S %m-%d-%Y"),
+                                                                            thwart(time.strftime("%H:%M:%S %m-%d-%Y")),
                                                                             thwart(message_type)))
 
     except Exception as e:
-        logging.error(e)
+        app.logger.error(e)
 
     c.close()
     conn.close()
@@ -98,7 +100,7 @@ def send_mail(rec, u_name):
         contact_log(rec, "Welcome Message")
 
     except Exception as e:
-        logging.error(e)
+        app.logger.error(e)
 
 # Login Requied - Wrapper
 def login_required(f):
@@ -232,6 +234,7 @@ def register_page():
         return render_template("register.html", form=form)
 
     except Exception as e:
+        app.logger.error(e)
         return render_template("error.html", error=e)
 
 
@@ -295,6 +298,7 @@ def monitor():
                                             ,down_endpoints=down_endpoints()
                                             ,warn_endpoints=warning_endpoints())
     except Exception as e:
+        app.logger.error(e)
         return render_template("error.html", error=e)
 
 # Settings page
@@ -303,7 +307,7 @@ def monitor():
 @admin_required
 def settings():
     try:
-        return render_template("settings.html", db_status=db_status)
+        return render_template("settings.html", db_status=NP_DBStatus())
 
     except Exception as e:
         return render_template("error.html", error=e)
@@ -345,14 +349,14 @@ def add_endpoint():
                                                                                         thwart(zip_code),
                                                                                         time.strftime("%H:%M:%S %m-%d-%Y")))
 
-            flash(f"{endpoint_name.capitalize()} has been added!")
+            flash(f"<strong>{endpoint_name.capitalize()}</strong> has been added!")
 
             return redirect(url_for('monitor'))
 
-        flash("Error Adding Endpoint.")
         return render_template("add_endpoint.html", form=form)
 
     except Exception as e:
+        app.logger.error(e)
         return render_template("error.html", error=e)
 
 
