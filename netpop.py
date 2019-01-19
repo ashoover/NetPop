@@ -40,7 +40,7 @@ app.config.update(
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
 	MAIL_USERNAME = 'netpopsimplemon@gmail.com',
-	MAIL_PASSWORD = 'Purpler@inD33r'
+	MAIL_PASSWORD = 'PASSWORD'
 	)
 mail = Mail(app)
 
@@ -91,13 +91,39 @@ def contact_log(recip, message_type):
     gc.collect()
 
 # Send Email
-def send_mail(rec, u_name):
+def send_mail(rec, u_name, msg_type):
+    email_cont = []
+    
+    def message_type():
+        if msg_type.lower() == "new_user":
+
+            msg_subject = "Welcome to Netpops!"
+            msg_body = f"Welcome to Netpops and Thanks for registering {u_name.capitalize()}!"
+
+            msg = [msg_subject,msg_body]
+
+            return msg
+
+        elif msg_type.lower() == "reset_password":
+            msg_subject = "Netpops Password Reset"
+            msg_body = f"Looks like you're trying to reset your password for {uname}. Click below to reset your password.  If you did not request this password change you can ignore this message."
+
+            msg = [msg_subject,msg_body]
+
+            return msg
+
+        else:
+            app.logger.error("No 'msg_type' selected.")
+
+    email_cont = message_type()
+
+
     try:
-        msg = Message("Welcome to NetPops!",sender="noreply@netpopsimplemon.com",recipients=[rec])
-        msg.body = f"Thanks for registering {u_name.capitalize()}!"           
+        msg = Message(email_cont[0],sender="noreply@netpopsimplemon.com",recipients=[rec])
+        msg.body = email_cont[1]           
         mail.send(msg)
 
-        contact_log(rec, "Welcome Message")
+        contact_log(rec, msg_type)
 
     except Exception as e:
         app.logger.error(e)
@@ -224,7 +250,7 @@ def register_page():
                 conn.close()
                 gc.collect()
 
-                executor.submit(send_mail(email ,username))   
+                executor.submit(send_mail(email ,username, "new_user"))   
                 session['logged_in'] = True
                 session['username'] = username
                 session['rank'] = '2'
@@ -236,6 +262,42 @@ def register_page():
     except Exception as e:
         app.logger.error(e)
         return render_template("error.html", error=e)
+
+# Forgot Password
+@app.route('/reset_password/', methods=["GET","POST"])
+def reset_password():
+    try:
+        c, conn = connection
+        if request.method == "POST":
+
+            x = c.execute("SELECT * FROM users WHERE username = %s"
+                                ,thwart(request.form['username'],))
+
+            if int(x) == 0:
+                return render_template("reset_password.html")
+                app.logger.info(f"No account found for for {request.form['username']}")
+            
+            else:
+                data = c.execute("SELECT * FROM users WHERE username = %s"
+                                        ,thwart(request.form['username'],))
+                email = c.fetchone()[6]
+                username = request.form['username']
+
+                executor.submit(send_mail(email ,username, "reset_password"))
+
+                flash("Please check you inbox for reset password instructions.")
+            
+
+        return render_template("reset_password.html")
+
+        c.close()
+        conn.close()
+        gc.collect()
+
+            
+    except Exception as e:
+        return render_template("error.html", error=e)
+
 
 
 # Monitor Page
