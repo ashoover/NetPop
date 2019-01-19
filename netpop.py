@@ -106,7 +106,7 @@ def send_mail(rec, u_name, msg_type):
 
         elif msg_type.lower() == "reset_password":
             msg_subject = "Netpops Password Reset"
-            msg_body = f"Looks like you're trying to reset your password for {uname}. Click below to reset your password.  If you did not request this password change you can ignore this message."
+            msg_body = f"Looks like you're trying to reset your password for {u_name}. Click below to reset your password.  If you did not request this password change you can ignore this message."
 
             msg = [msg_subject,msg_body]
 
@@ -267,26 +267,24 @@ def register_page():
 @app.route('/reset_password/', methods=["GET","POST"])
 def reset_password():
     try:
-        c, conn = connection
+        c, conn = connection()
         if request.method == "POST":
 
-            x = c.execute("SELECT * FROM users WHERE username = %s"
-                                ,thwart(request.form['username'],))
+            x = c.execute("SELECT * FROM users WHERE username = %s",thwart(request.form['username'],))
 
             if int(x) == 0:
-                return render_template("reset_password.html")
                 app.logger.info(f"No account found for for {request.form['username']}")
+                return render_template("reset_password.html")
             
             else:
-                data = c.execute("SELECT * FROM users WHERE username = %s"
-                                        ,thwart(request.form['username'],))
+                data = c.execute("SELECT * FROM users WHERE username = %s",thwart(request.form['username'],))
                 email = c.fetchone()[6]
                 username = request.form['username']
 
-                executor.submit(send_mail(email ,username, "reset_password"))
+                executor.submit(send_mail(email , username, "reset_password"))
 
-                flash("Please check you inbox for reset password instructions.")
-            
+                flash(f"Please check you inbox for reset password instructions for {username}.")
+                return render_template("reset_password.html")
 
         return render_template("reset_password.html")
 

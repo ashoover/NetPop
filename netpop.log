@@ -182,3 +182,168 @@
 2019-01-18 18:14:02 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 2019-01-18 18:15:37 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
 2019-01-18 18:15:37 -  * Restarting with stat
+2019-01-18 18:18:01 -  * Restarting with stat
+2019-01-18 18:18:02 -  * Debugger is active!
+2019-01-18 18:18:02 -  * Debugger PIN: 180-616-779
+2019-01-18 18:18:02 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:18:04 - 127.0.0.1 - - [18/Jan/2019 18:18:04] "GET / HTTP/1.1" 200 -
+2019-01-18 18:18:04 - 127.0.0.1 - - [18/Jan/2019 18:18:04] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:18:06 - 127.0.0.1 - - [18/Jan/2019 18:18:06] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:18:07 - 127.0.0.1 - - [18/Jan/2019 18:18:07] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:18:19 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:18:19 -  * Restarting with stat
+2019-01-18 18:18:20 -  * Debugger is active!
+2019-01-18 18:18:20 -  * Debugger PIN: 180-616-779
+2019-01-18 18:18:20 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:20:31 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:20:31 -  * Restarting with stat
+2019-01-18 18:20:32 -  * Debugger is active!
+2019-01-18 18:20:32 -  * Debugger PIN: 180-616-779
+2019-01-18 18:20:32 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:20:45 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:20:45 -  * Restarting with stat
+2019-01-18 18:20:45 -  * Debugger is active!
+2019-01-18 18:20:45 -  * Debugger PIN: 180-616-779
+2019-01-18 18:20:45 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:20:47 - 127.0.0.1 - - [18/Jan/2019 18:20:47] "GET / HTTP/1.1" 200 -
+2019-01-18 18:20:49 - 127.0.0.1 - - [18/Jan/2019 18:20:49] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:20:50 - 127.0.0.1 - - [18/Jan/2019 18:20:50] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:22:14 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:22:14 -  * Restarting with stat
+2019-01-18 18:22:14 -  * Debugger is active!
+2019-01-18 18:22:14 -  * Debugger PIN: 180-616-779
+2019-01-18 18:22:14 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:22:17 - 127.0.0.1 - - [18/Jan/2019 18:22:17] "GET / HTTP/1.1" 200 -
+2019-01-18 18:22:18 - 127.0.0.1 - - [18/Jan/2019 18:22:18] "GET / HTTP/1.1" 200 -
+2019-01-18 18:22:20 - 127.0.0.1 - - [18/Jan/2019 18:22:20] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:22:22 - 127.0.0.1 - - [18/Jan/2019 18:22:22] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:22:42 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:22:42 -  * Restarting with stat
+2019-01-18 18:22:42 -  * Debugger is active!
+2019-01-18 18:22:42 -  * Debugger PIN: 180-616-779
+2019-01-18 18:22:42 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:23:02 - 127.0.0.1 - - [18/Jan/2019 18:23:02] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:23:05 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:23:05 -  * Restarting with stat
+2019-01-18 18:23:05 -  * Debugger is active!
+2019-01-18 18:23:05 -  * Debugger PIN: 180-616-779
+2019-01-18 18:23:05 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /static/css/styles.css HTTP/1.1" 200 -
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /static/js/monitor_chart.js HTTP/1.1" 200 -
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /static/images/server-solid.svg HTTP/1.1" 200 -
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /static/images/laugh-wink-solid.svg HTTP/1.1" 200 -
+2019-01-18 18:23:16 - 127.0.0.1 - - [18/Jan/2019 18:23:16] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2019-01-18 18:23:17 - 127.0.0.1 - - [18/Jan/2019 18:23:17] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:24:51 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:24:51 -  * Restarting with stat
+2019-01-18 18:24:52 -  * Debugger is active!
+2019-01-18 18:24:52 -  * Debugger PIN: 180-616-779
+2019-01-18 18:24:52 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:24:53 - 127.0.0.1 - - [18/Jan/2019 18:24:53] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:24:53 - 127.0.0.1 - - [18/Jan/2019 18:24:53] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:24:54 - 127.0.0.1 - - [18/Jan/2019 18:24:54] "GET / HTTP/1.1" 200 -
+2019-01-18 18:24:57 - 127.0.0.1 - - [18/Jan/2019 18:24:57] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:24:59 - 127.0.0.1 - - [18/Jan/2019 18:24:59] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:25:20 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:25:20 -  * Restarting with stat
+2019-01-18 18:25:21 -  * Debugger is active!
+2019-01-18 18:25:21 -  * Debugger PIN: 180-616-779
+2019-01-18 18:25:21 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:25:26 - 127.0.0.1 - - [18/Jan/2019 18:25:26] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:25:26 - 127.0.0.1 - - [18/Jan/2019 18:25:26] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:25:27 - 127.0.0.1 - - [18/Jan/2019 18:25:27] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:26:10 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:26:10 -  * Restarting with stat
+2019-01-18 18:26:11 -  * Debugger is active!
+2019-01-18 18:26:11 -  * Debugger PIN: 180-616-779
+2019-01-18 18:26:11 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:26:14 - 127.0.0.1 - - [18/Jan/2019 18:26:14] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:27:13 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:27:13 -  * Restarting with stat
+2019-01-18 18:27:14 -  * Debugger is active!
+2019-01-18 18:27:14 -  * Debugger PIN: 180-616-779
+2019-01-18 18:27:14 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:27:15 - 127.0.0.1 - - [18/Jan/2019 18:27:15] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:27:16 - 127.0.0.1 - - [18/Jan/2019 18:27:16] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:27:20 - 127.0.0.1 - - [18/Jan/2019 18:27:20] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:27:29 - 127.0.0.1 - - [18/Jan/2019 18:27:29] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:27:30 - 127.0.0.1 - - [18/Jan/2019 18:27:30] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:27:32 - 127.0.0.1 - - [18/Jan/2019 18:27:32] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:27:59 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:27:59 -  * Restarting with stat
+2019-01-18 18:27:59 -  * Debugger is active!
+2019-01-18 18:27:59 -  * Debugger PIN: 180-616-779
+2019-01-18 18:27:59 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:28:02 - 127.0.0.1 - - [18/Jan/2019 18:28:02] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:28:02 - 127.0.0.1 - - [18/Jan/2019 18:28:02] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:28:17 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:28:17 -  * Restarting with stat
+2019-01-18 18:28:17 -  * Debugger is active!
+2019-01-18 18:28:17 -  * Debugger PIN: 180-616-779
+2019-01-18 18:28:17 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:28:20 - 127.0.0.1 - - [18/Jan/2019 18:28:20] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:28:20 - 127.0.0.1 - - [18/Jan/2019 18:28:20] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:28:36 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:28:36 -  * Restarting with stat
+2019-01-18 18:28:36 -  * Debugger is active!
+2019-01-18 18:28:36 -  * Debugger PIN: 180-616-779
+2019-01-18 18:28:36 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:28:38 - 127.0.0.1 - - [18/Jan/2019 18:28:38] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:28:38 - 127.0.0.1 - - [18/Jan/2019 18:28:38] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:29:11 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:29:11 -  * Restarting with stat
+2019-01-18 18:29:12 -  * Debugger is active!
+2019-01-18 18:29:12 -  * Debugger PIN: 180-616-779
+2019-01-18 18:29:12 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:29:13 - 127.0.0.1 - - [18/Jan/2019 18:29:13] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:29:17 - 127.0.0.1 - - [18/Jan/2019 18:29:17] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:30:38 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:30:38 -  * Restarting with stat
+2019-01-18 18:30:38 -  * Debugger is active!
+2019-01-18 18:30:38 -  * Debugger PIN: 180-616-779
+2019-01-18 18:30:38 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:30:39 - 127.0.0.1 - - [18/Jan/2019 18:30:39] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:30:40 - 127.0.0.1 - - [18/Jan/2019 18:30:40] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:30:43 - 127.0.0.1 - - [18/Jan/2019 18:30:43] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:30:44 - 127.0.0.1 - - [18/Jan/2019 18:30:44] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:30:44 - 127.0.0.1 - - [18/Jan/2019 18:30:44] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2019-01-18 18:30:44 - 127.0.0.1 - - [18/Jan/2019 18:30:44] "GET /static/css/styles.css HTTP/1.1" 200 -
+2019-01-18 18:30:44 - 127.0.0.1 - - [18/Jan/2019 18:30:44] "GET /static/js/monitor_chart.js HTTP/1.1" 200 -
+2019-01-18 18:30:44 - 127.0.0.1 - - [18/Jan/2019 18:30:44] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:30:44 - 127.0.0.1 - - [18/Jan/2019 18:30:44] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-18 18:30:45 - 127.0.0.1 - - [18/Jan/2019 18:30:45] "GET /static/css/bootstrap.min.css HTTP/1.1" 200 -
+2019-01-18 18:30:45 - 127.0.0.1 - - [18/Jan/2019 18:30:45] "GET /static/css/styles.css HTTP/1.1" 200 -
+2019-01-18 18:30:45 - 127.0.0.1 - - [18/Jan/2019 18:30:45] "GET /static/js/monitor_chart.js HTTP/1.1" 200 -
+2019-01-18 18:30:45 - 127.0.0.1 - - [18/Jan/2019 18:30:45] "GET /static/js/netpop.js HTTP/1.1" 200 -
+2019-01-18 18:30:45 - 127.0.0.1 - - [18/Jan/2019 18:30:45] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+2019-01-18 18:30:45 - 127.0.0.1 - - [18/Jan/2019 18:30:45] "GET /static/images/server-solid.svg HTTP/1.1" 200 -
+2019-01-18 18:30:45 - 127.0.0.1 - - [18/Jan/2019 18:30:45] "GET /static/favicon.ico HTTP/1.1" 200 -
+2019-01-18 18:30:47 - 127.0.0.1 - - [18/Jan/2019 18:30:47] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:30:50 - 127.0.0.1 - - [18/Jan/2019 18:30:50] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:32:33 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:32:33 -  * Restarting with stat
+2019-01-18 18:32:34 -  * Debugger is active!
+2019-01-18 18:32:34 -  * Debugger PIN: 180-616-779
+2019-01-18 18:32:34 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:32:35 - 127.0.0.1 - - [18/Jan/2019 18:32:35] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:32:37 - 127.0.0.1 - - [18/Jan/2019 18:32:37] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:32:44 - 127.0.0.1 - - [18/Jan/2019 18:32:44] "GET /login/ HTTP/1.1" 200 -
+2019-01-18 18:32:45 - 127.0.0.1 - - [18/Jan/2019 18:32:45] "GET /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:32:48 - No account found for for 
+2019-01-18 18:32:48 - 127.0.0.1 - - [18/Jan/2019 18:32:48] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:32:52 - 127.0.0.1 - - [18/Jan/2019 18:32:52] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:33:09 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:33:09 -  * Restarting with stat
+2019-01-18 18:33:09 -  * Debugger is active!
+2019-01-18 18:33:09 -  * Debugger PIN: 180-616-779
+2019-01-18 18:33:09 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-01-18 18:33:13 - 127.0.0.1 - - [18/Jan/2019 18:33:13] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:34:06 - 127.0.0.1 - - [18/Jan/2019 18:34:06] "POST /reset_password/ HTTP/1.1" 200 -
+2019-01-18 18:34:39 -  * Detected change in 'C:\\Users\\Adam\\Documents\\Projects\\flask-sendtex\\my_app\\NetPop\\netpop.py', reloading
+2019-01-18 18:34:39 -  * Restarting with stat
+2019-01-18 18:34:40 -  * Debugger is active!
+2019-01-18 18:34:40 -  * Debugger PIN: 180-616-779
+2019-01-18 18:34:40 -  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
