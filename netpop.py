@@ -40,7 +40,7 @@ app.config.update(
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
 	MAIL_USERNAME = 'netpopsimplemon@gmail.com',
-	MAIL_PASSWORD = 'PASSWORD'
+	MAIL_PASSWORD = 'password'
 	)
 mail = Mail(app)
 
