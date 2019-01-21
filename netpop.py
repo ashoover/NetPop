@@ -5,7 +5,7 @@ import time
 import logging
 from dbconnect import connection
 from checks import NP_DBStatus
-from quick_q import total_endpoints
+#from quick_q import total_endpoints
 from wtforms import Form, validators, PasswordField, StringField
 from passlib.hash import sha256_crypt
 from pymysql import escape_string as thwart
@@ -13,6 +13,8 @@ import gc
 from functools import wraps
 from flask_executor import Executor
 from os import urandom
+import secrets
+from secrets import token_urlsafe
 
 # Random Variables
 HOST_DICT = HostList()
@@ -22,6 +24,9 @@ time_now = time.strftime("%H:%M %m-%d-%Y")
 ####
 # Settings
 ####
+netpop_hostname = "http://localhost:5000"
+
+
 
 # Logging Settings
 logging.basicConfig(level=logging.DEBUG,
@@ -34,8 +39,14 @@ app = Flask(__name__)
 executor = Executor(app)
 app.secret_key = urandom(24)
 app.config.update(
+
+    # Disabled for dev
+    #SESSION_COOKIE_SECURE = True,
+    #REMEMBER_COOKIE_SECURE = True,
+
 	DEBUG=True,
-	#EMAIL SETTINGS
+
+	# EMAIL SETTINGS
 	MAIL_SERVER='smtp.gmail.com',
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
@@ -73,6 +84,29 @@ def admin_check(c_name):
 
     return admin_status
 
+# Verify user has a valid token before allowing access to the update password page for their account.
+def token_check(c_token):
+    c, conn = connection()
+    token_status = False
+
+    try:
+        x = c.execute("SELECT * FROM users WHERE reset_token = %s", c_token,)
+
+        if int(x) == 0:
+            token_status = False
+
+        else:
+            token_status = True
+
+    except Exception:
+        token_status = False
+
+    c.close()
+    conn.close()
+    gc.collect()
+
+    return token_status    
+
 # Logs alerts and emails to cont_log table
 def contact_log(recip, message_type):
     try:
@@ -82,6 +116,7 @@ def contact_log(recip, message_type):
                                                                             (thwart(recip),
                                                                             thwart(time.strftime("%H:%M:%S %m-%d-%Y")),
                                                                             thwart(message_type)))
+        conn.commit()
 
     except Exception as e:
         app.logger.error(e)
@@ -105,10 +140,54 @@ def send_mail(rec, u_name, msg_type):
             return msg
 
         elif msg_type.lower() == "reset_password":
-            msg_subject = "Netpops Password Reset"
-            msg_body = f"Looks like you're trying to reset your password for {u_name}. Click below to reset your password.  If you did not request this password change you can ignore this message."
+            c, conn = connection()
+            
+            data = c.execute("SELECT * FROM users WHERE username = %s", u_name,)
+            result = c.fetchone()
 
-            msg = [msg_subject,msg_body]
+            token = result[11]
+
+            full_url = f"{netpop_hostname}/reset_password/{token}"
+
+            msg_subject = "Netpops Password Reset"
+            msg_html = f'<p>Hey {u_name.capitalize()}!\
+                            <br>\
+                            We got a request to reset your password.\
+                            <br>\
+                            <p>Click <a href="{full_url}">HERE</a> to it.\
+                            <br>\
+                            <p>Or open this <strong>{full_url}</strong> in your browser.\
+                            <br>\
+                            <p>If you did not request this password reset, then just ignore this email.\
+                            <br>\
+                            Thanks!\
+                            <br>\
+                            NetPop</p>'
+
+            msg_body = f"Looks like you're trying to reset your password for {u_name}. \
+                        Go to {full_url} to reset you password.  If you did not request \
+                        this password change you can ignore this message."
+
+            msg = [msg_subject,msg_body,msg_html]
+
+            return msg
+
+        elif msg_type.lower() == "password_update_confirm":
+            c, conn = connection()
+            data = c.execute("SELECT * FROM users WHERE username = %s", u_name,)
+
+            msg_subject = "Netpops Password Changed"
+            msg_html = f'<p>Hey {u_name.capitalize()}!\
+                            <br>\
+                            Your password was successfully changed!\
+                            <br>\
+                            Thanks!\
+                            <br>\
+                            NetPop</p>'
+
+            msg_body = "Your password was successfully changed! Thanks!"
+
+            msg = [msg_subject,msg_body,msg_html]
 
             return msg
 
@@ -120,7 +199,8 @@ def send_mail(rec, u_name, msg_type):
 
     try:
         msg = Message(email_cont[0],sender="noreply@netpopsimplemon.com",recipients=[rec])
-        msg.body = email_cont[1]           
+        msg.body = email_cont[1]
+        msg.html = email_cont[2]
         mail.send(msg)
 
         contact_log(rec, msg_type)
@@ -146,6 +226,18 @@ def admin_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
         if admin_check(session['username']) == True:
+            return f(*args, **kwargs)
+
+        else:
+            return redirect(url_for('access_denied'))
+
+    return wrap
+
+# Token Required - Wrapper
+def token_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if token_check(session['token']) == True:
             return f(*args, **kwargs)
 
         else:
@@ -181,7 +273,9 @@ def login_page():
         c, conn = connection()
 
         if request.method == "POST":
-            data = c.execute("SELECT * FROM users WHERE username = %s", thwart(request.form['username'],))
+            secure_un = thwart(request.form['username'],)
+
+            data = c.execute("SELECT * FROM users WHERE username = %s", secure_un)
             data = c.fetchone()[5]
 
             if sha256_crypt.verify(request.form['password'], data):
@@ -191,19 +285,24 @@ def login_page():
                 if admin_check(session['username']):
                     session['admin_status'] = True
 
-                flash(f"Welcome, {session['username'].capitalize()}! You are now logged in!")
+                c.execute("UPDATE users SET lastlogin=%s WHERE username=%s", (time.strftime("%H:%M:%S %m-%d-%Y") , secure_un))
+                conn.commit()
 
+                flash(f"Welcome, {session['username'].capitalize()}! You are now logged in!")
                 return redirect(url_for('monitor'))
 
                 gc.collect()
 
+            
+            app.logger.info(f"No user found for {request.form['username']}")
             flash("Invalid Login.  Try Again.")
             return render_template("login.html")
 
         return render_template("login.html")
 
     except Exception as e:
-        return render_template("error.html", error=e)
+        #return render_template("error.html", error=e)
+        return e
 
 
 # Registration Page
@@ -263,6 +362,15 @@ def register_page():
         app.logger.error(e)
         return render_template("error.html", error=e)
 
+
+
+
+
+
+
+
+
+
 # Forgot Password
 @app.route('/reset_password/', methods=["GET","POST"])
 def reset_password():
@@ -280,11 +388,19 @@ def reset_password():
                 data = c.execute("SELECT * FROM users WHERE username = %s",thwart(request.form['username'],))
                 email = c.fetchone()[6]
                 username = request.form['username']
+                secure_un = thwart(username.lower())
+                token = secrets.token_urlsafe(32)
+                secure_token = thwart(token)
+
+                c.execute("UPDATE users SET reset_token=%s WHERE username=%s", (secure_token, secure_un))
+                c.execute("UPDATE users SET reset_password=%s WHERE username=%s", (1, secure_un))
+                
+                conn.commit()
 
                 executor.submit(send_mail(email , username, "reset_password"))
 
                 flash(f"Please check you inbox for reset password instructions for {username}.")
-                return render_template("reset_password.html")
+                return redirect(url_for('homepage'))
 
         return render_template("reset_password.html")
 
@@ -292,9 +408,82 @@ def reset_password():
         conn.close()
         gc.collect()
 
-            
     except Exception as e:
         return render_template("error.html", error=e)
+
+
+@app.route('/reset_password/<token>')
+def reset_password_token(token):
+    try:
+        c, conn = connection()
+        x = c.execute("SELECT * FROM users WHERE reset_token = %s",token)
+        
+        if int(x) == 0:
+            app.logger.info(f"No token found for for {token}")
+            return 404
+        
+        else:
+            session['token'] = token
+            return redirect(url_for('update_password'))
+
+                
+    except Exception as e:
+        return render_template("error.html", error=e)
+
+
+@app.route('/update_password/', methods=["GET","POST"])
+@token_required
+def update_password():
+    try:
+        c, conn = connection()
+
+        if request.method == "POST":
+
+            c, conn = connection()
+            token = session['token']
+
+            data = c.execute("SELECT * FROM users WHERE reset_token = %s", (thwart(token),))
+            result = c.fetchone()
+            username = result[3]
+            email = result[6]
+            password = request.form['password']
+            c_password = request.form['c_password']
+            hashed_password = sha256_crypt.hash(password)
+
+            if password == c_password:
+
+                c.execute("UPDATE users SET password=%s WHERE username=%s", (thwart(hashed_password), username))
+                c.execute("UPDATE users SET reset_token=NULL WHERE username=%s", (username))
+                c.execute("UPDATE users SET reset_password=0 WHERE username=%s", (username))
+
+                conn.commit()
+
+                session.pop('token')
+                executor.submit(send_mail(email , username, "password_update_confirm"))
+
+                flash("Your password has been changed! Try your login now.")
+                return redirect(url_for('login_page'))
+            
+            else:
+                flash("Uh-Oh... Your passwords didn't match.  Let's try that again.")
+                return redirect(url_for('update_password'))
+
+        return render_template("update_password.html")
+
+        c.close()
+        conn.close()
+        gc.collect()
+    
+    except Exception as e:
+        #return e
+        return render_template("error.html", error=e)
+
+
+
+
+
+
+
 
 
 
@@ -408,8 +597,9 @@ def add_endpoint():
                                                                                         thwart(ip_addr),
                                                                                         thwart(zip_code),
                                                                                         time.strftime("%H:%M:%S %m-%d-%Y")))
+                conn.commit()
 
-            flash(f"<strong>{endpoint_name.capitalize()}</strong> has been added!")
+            flash(f"{endpoint_name.capitalize()} has been added!")
 
             return redirect(url_for('monitor'))
 

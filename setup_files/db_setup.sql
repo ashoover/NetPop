@@ -14,7 +14,8 @@ CREATE TABLE users (
     settings VARCHAR(3000), 
     rank INT(3), 
     lastlogin VARCHAR(20),
-    last_invalid_login VARCHAR(20)
+    last_invalid_login VARCHAR(20),
+    reset_token VARCHAR(50)
 )
 ENGINE=MyISAM
 DEFAULT CHARSET=utf8
