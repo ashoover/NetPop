@@ -1,0 +1,40 @@
+{% extends "header.html" %}
+
+
+{% block body %}
+
+    <nav class="d-none d-lg-block" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a class="text-muted" style="text-decoration: none;" href="{{ url_for('settings') }}">Settings</a></li>
+            <li class="breadcrumb-item active" aria-current="page">User Management</li>
+        </ol>
+    </nav>
+
+    <div class="container-fluid grid-fix">
+
+        <br>
+        <p class="display-4">User Management</p>
+        <br>
+        <div class="table-responsive">
+                <table class="table table-sm table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Username</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Account Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for result in results %}
+                        <tr class="">
+                        <td><a href="#" style="text-decoration: none; color: black;">{{ result[3] }}</a></td>
+                        <td>{{ result[6] }}</td>
+                        <td>Enabled</td>
+                        </tr>
+                    {%- endfor %}
+                    </tbody>
+                </table>
+            </div>
+    </div>
+
+{% endblock %}

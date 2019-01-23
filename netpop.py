@@ -301,8 +301,7 @@ def login_page():
         return render_template("login.html")
 
     except Exception as e:
-        #return render_template("error.html", error=e)
-        return e
+        return render_template("error.html", error=e)
 
 
 # Registration Page
@@ -361,15 +360,6 @@ def register_page():
     except Exception as e:
         app.logger.error(e)
         return render_template("error.html", error=e)
-
-
-
-
-
-
-
-
-
 
 # Forgot Password
 @app.route('/reset_password/', methods=["GET","POST"])
@@ -478,15 +468,6 @@ def update_password():
         #return e
         return render_template("error.html", error=e)
 
-
-
-
-
-
-
-
-
-
 # Monitor Page
 @app.route('/monitor/')
 @login_required
@@ -541,7 +522,7 @@ def monitor():
         return results
 
     try:
-        return render_template("monitor.html", HOST_DICT=HOST_DICT
+        return render_template("monitor.html",HOST_DICT=HOST_DICT
                                             ,time_now=time_now
                                             ,t_endpoints=total_endpoints()
                                             ,down_endpoints=down_endpoints()
@@ -555,17 +536,36 @@ def monitor():
 @login_required
 @admin_required
 def settings():
+    def total_endpoints():
+        try:
+            c, conn = connection()
+            c.execute("SELECT count(*) FROM endpoints;")
+
+            results = c.fetchone()
+            results = results[0]
+
+            c.close()
+            conn.close()
+            gc.collect()
+            
+        except Exception:
+                results = 'e'
+
+        return results
+
     try:
-        return render_template("settings.html", db_status=NP_DBStatus())
+        return render_template("settings.html", db_status=NP_DBStatus(), t_endpoints=total_endpoints())
 
     except Exception as e:
         return render_template("error.html", error=e)
+
 
 class AddEndpointForm(Form):
     endpoint_name = StringField('Endpoint Name')
     hostname = StringField('Hostname')
     ip_addr = StringField('IP Address')
     zip_code = StringField('Zip Code')
+
 
 # Add Endpoint
 @app.route('/add_endpoint/', methods=["GET", "POST"])
@@ -609,7 +609,27 @@ def add_endpoint():
         app.logger.error(e)
         return render_template("error.html", error=e)
 
+@app.route('/my_account/')
+@login_required
+def my_account():
+    return render_template("my_account.html")
 
+
+@app.route('/user_management/')
+@login_required
+@admin_required
+def user_management():
+    try:
+        c, conn = connection()
+
+        data = c.execute("SELECT * FROM users")
+        results = c.fetchall()
+
+        return render_template("user_management.html", results=results)
+    
+    except Exception as e:
+        return render_template("error.html", error=e)
+    
 
 
 ##### Playground ######
