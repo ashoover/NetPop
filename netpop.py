@@ -2,7 +2,6 @@ from flask import Flask, render_template, flash, request, url_for, redirect, ses
 from flask_mail import Mail, Message
 from np_config_list import HostList
 import time
-import logging
 from dbconnect import connection
 from checks import NP_DBStatus
 #from quick_q import total_endpoints
@@ -25,27 +24,28 @@ time_now = time.strftime("%H:%M %m-%d-%Y")
 # Settings
 ####
 netpop_hostname = "http://localhost:5000"
+netpop_logging_to_console = 1
 
 
 
 # Logging Settings
-logging.basicConfig(level=logging.DEBUG,
-                    filename="netpop.log",
-                    format='%(asctime)s - %(message)s',
-                    datefmt='%Y-%m-%d %H:%M:%S')
+if netpop_logging_to_console == 0:
+    import logging
+
+    logging.basicConfig(level=logging.DEBUG,
+                        filename="netpop.log",
+                        format='%(asctime)s - %(message)s',
+                        datefmt='%Y-%m-%d %H:%M:%S')
 
 # Flask Settings
 app = Flask(__name__)
 executor = Executor(app)
 app.secret_key = urandom(24)
 app.config.update(
-
     # Disabled for dev
     #SESSION_COOKIE_SECURE = True,
     #REMEMBER_COOKIE_SECURE = True,
-
 	DEBUG=True,
-
 	# EMAIL SETTINGS
 	MAIL_SERVER='smtp.gmail.com',
 	MAIL_PORT=465,
@@ -62,7 +62,7 @@ app.config['EXECUTOR_MAX_WORKERS'] = 4
 # Admin Status Check
 def admin_check(c_name):
     c, conn = connection()
-    u_name = c_name
+    u_name = thwart(c_name)
     admin_status = False
 
     try:
@@ -88,7 +88,6 @@ def admin_check(c_name):
 def token_check(c_token):
     c, conn = connection()
     token_status = False
-
     try:
         x = c.execute("SELECT * FROM users WHERE reset_token = %s", c_token,)
 
@@ -112,14 +111,13 @@ def contact_log(recip, message_type):
     try:
         c, conn = connection()
 
-        c.execute("INSERT INTO cont_log (recipient, date_sent, message_type) VALUES (%s, %s, %s)", 
-                                                                            (thwart(recip),
-                                                                            thwart(time.strftime("%H:%M:%S %m-%d-%Y")),
-                                                                            thwart(message_type)))
+        c.execute("INSERT INTO cont_log (recipient, date_sent, message_type) VALUES (%s, %s, %s)", (thwart(recip),thwart(time.strftime("%H:%M:%S %m-%d-%Y")),thwart(message_type)))
         conn.commit()
 
     except Exception as e:
-        app.logger.error(e)
+        if netpop_logging_to_console == 1:
+            app.logger.error(e)
+            
 
     c.close()
     conn.close()
@@ -192,10 +190,10 @@ def send_mail(rec, u_name, msg_type):
             return msg
 
         else:
-            app.logger.error("No 'msg_type' selected.")
+            if netpop_logging_to_console == 1:
+                app.logger.error(e)
 
     email_cont = message_type()
-
 
     try:
         msg = Message(email_cont[0],sender="noreply@netpopsimplemon.com",recipients=[rec])
@@ -206,7 +204,13 @@ def send_mail(rec, u_name, msg_type):
         contact_log(rec, msg_type)
 
     except Exception as e:
-        app.logger.error(e)
+        if netpop_logging_to_console == 1:
+            app.logger.error(e)
+
+
+################
+### Wrappers ###
+################
 
 # Login Requied - Wrapper
 def login_required(f):
@@ -246,9 +250,9 @@ def token_required(f):
     return wrap
 
 
-###
-# Routes
-###
+##############
+### Routes ###
+##############
 
 # Home Page
 @app.route('/')
@@ -262,7 +266,6 @@ def homepage():
 def logout():
     session.clear()
     flash("You've been logged out")
-    gc.collect()
     return redirect(url_for('homepage'))
 
 # Login Page
@@ -293,8 +296,9 @@ def login_page():
 
                 gc.collect()
 
-            
-            app.logger.info(f"No user found for {request.form['username']}")
+            if netpop_logging_to_console:
+                app.logger.info(f"No user found for {request.form['username']}")
+                
             flash("Invalid Login.  Try Again.")
             return render_template("login.html")
 
@@ -304,15 +308,28 @@ def login_page():
         return render_template("error.html", error=e)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Registration Page
 class RegistrationForm(Form):
     username = StringField('Username', [validators.Length(min=4, max=20)])
     email = StringField('Email Address', [validators.Length(min=6, max=50)])
-    password = PasswordField('Password', [validators.DataRequired(),
-                                          validators.EqualTo('confirm', message='Passwords must match.')])
+    password = PasswordField('Password', [validators.DataRequired(),validators.EqualTo('confirm', message='Passwords must match.')])
     confirm = PasswordField('Confirm Password')
 
-# Register Page
 @app.route('/register/', methods=['GET', 'POST'])
 def register_page():
     rank = '2' # (Sets all users as Standard Users on registration)
@@ -333,12 +350,7 @@ def register_page():
                 return render_template("register.html", form=form)
 
             else:
-                c.execute("INSERT INTO users (username, password, email, rank, lastlogin) VALUES (%s, %s, %s, %s, %s)", 
-                                                                                                (thwart(username),
-                                                                                                thwart(password),
-                                                                                                thwart(email),
-                                                                                                rank,
-                                                                                                time.strftime("%H:%M:%S %m-%d-%Y")))
+                c.execute("INSERT INTO users (username, password, email, rank, lastlogin) VALUES (%s, %s, %s, %s, %s)", (thwart(username),thwart(password),thwart(email),rank,time.strftime("%H:%M:%S %m-%d-%Y")))
 
                 conn.commit()
 
@@ -348,7 +360,7 @@ def register_page():
                 conn.close()
                 gc.collect()
 
-                executor.submit(send_mail(email ,username, "new_user"))   
+                executor.submit(send_mail(email , username, "new_user"))   
                 session['logged_in'] = True
                 session['username'] = username
                 session['rank'] = '2'
@@ -358,8 +370,32 @@ def register_page():
         return render_template("register.html", form=form)
 
     except Exception as e:
-        app.logger.error(e)
-        return render_template("error.html", error=e)
+        if netpop_logging_to_console == 1:
+            app.logger.error(e)
+
+        #return render_template("error.html", error=e)
+        return e
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Forgot Password
 @app.route('/reset_password/', methods=["GET","POST"])
@@ -401,7 +437,7 @@ def reset_password():
     except Exception as e:
         return render_template("error.html", error=e)
 
-
+# Reset Password Token reply
 @app.route('/reset_password/<token>')
 def reset_password_token(token):
     try:
@@ -421,6 +457,7 @@ def reset_password_token(token):
         return render_template("error.html", error=e)
 
 
+# Change/Update Password Page
 @app.route('/update_password/', methods=["GET","POST"])
 @token_required
 def update_password():
@@ -522,16 +559,16 @@ def monitor():
         return results
 
     try:
-        return render_template("monitor.html",HOST_DICT=HOST_DICT
-                                            ,time_now=time_now
-                                            ,t_endpoints=total_endpoints()
-                                            ,down_endpoints=down_endpoints()
-                                            ,warn_endpoints=warning_endpoints())
+        return render_template("monitor.html",HOST_DICT=HOST_DICT,time_now=time_now,t_endpoints=total_endpoints(),down_endpoints=down_endpoints(),warn_endpoints=warning_endpoints())
     except Exception as e:
-        app.logger.error(e)
-        return render_template("error.html", error=e)
+        if netpop_logging_to_console == 1:
+            app.logger.error(e)
+            
+        #return render_template("error.html", error=e)
+        return e
 
-# Settings page
+
+# Settings page (Admin only)
 @app.route('/settings/')
 @login_required
 @admin_required
@@ -560,6 +597,7 @@ def settings():
         return render_template("error.html", error=e)
 
 
+# Add Endpoint (Admin Only)
 class AddEndpointForm(Form):
     endpoint_name = StringField('Endpoint Name')
     hostname = StringField('Hostname')
@@ -567,7 +605,6 @@ class AddEndpointForm(Form):
     zip_code = StringField('Zip Code')
 
 
-# Add Endpoint
 @app.route('/add_endpoint/', methods=["GET", "POST"])
 @login_required
 @admin_required
@@ -606,15 +643,19 @@ def add_endpoint():
         return render_template("add_endpoint.html", form=form)
 
     except Exception as e:
-        app.logger.error(e)
+        if netpop_logging_to_console == 1:
+            app.logger.error(e)
+            
         return render_template("error.html", error=e)
 
+
+# My Profile/Account Settings
 @app.route('/my_account/')
 @login_required
 def my_account():
     return render_template("my_account.html")
 
-
+# NetPop User Managment Page (admin only)
 @app.route('/user_management/')
 @login_required
 @admin_required
@@ -651,7 +692,7 @@ def background_process():
 		return str(e)
 
 
-###### end of Playground ########
+###### End of Playground ########
 
 # Edit Endpoint
 @app.route('/edit_endpoint/', methods=['GET', 'POST'])

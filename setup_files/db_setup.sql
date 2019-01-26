@@ -60,7 +60,7 @@ CREATE TABLE cont_log (
 	recipient varchar(100) NULL,
 	date_sent varchar(100) NULL,
 	message_type varchar(100) NULL,
-	CONSTRAINT cont_log_pk PRIMARY KEY (uid)
+	endpoint_name varchar(50)
 )
 ENGINE=MyISAM
 DEFAULT CHARSET=utf8

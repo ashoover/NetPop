@@ -2,7 +2,6 @@
 
 
 {% block body %}
-
     <nav class="d-none d-lg-block" aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a class="text-muted" style="text-decoration: none;" href="{{ url_for('settings') }}">Settings</a></li>
@@ -11,8 +10,8 @@
     </nav>
 
     <div class="container-fluid grid-fix">
-
         <br>
+
         <p class="display-4">User Management</p>
         <br>
         <div class="table-responsive">
@@ -26,10 +25,19 @@
                     </thead>
                     <tbody>
                     {% for result in results %}
-                        <tr class="">
-                        <td><a href="#" style="text-decoration: none; color: black;">{{ result[3] }}</a></td>
+                        {% if result[8] == 0 %}
+                            <tr class="table-dark">
+                        {% elif result[8] > 0 %}
+                            <tr class="">
+                        {% endif %}
+                        
+                        <td><a href="#" style="text-decoration: none; color: black;"><strong>{{ result[3] }}</strong></a></td>
                         <td>{{ result[6] }}</td>
-                        <td>Enabled</td>
+                        {% if result[8] == 0 %}
+                            <td>Disabled</td>
+                        {% elif result[8] > 0 %}
+                            <td>Enabled</td>
+                        {% endif %}
                         </tr>
                     {%- endfor %}
                     </tbody>
