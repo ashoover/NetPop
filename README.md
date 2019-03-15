@@ -15,6 +15,7 @@ Requirements :
   -  PyMySQL==0.9.3
   -  Werkzeug==0.14.1
   -  WTForms==2.2.1
+  -  ping3==1.4.1
 
 MySQL DB:
 Table info in db_setup.sql.  I probably wouldn't use that yet as it's not up to date.

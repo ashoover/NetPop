@@ -1,10 +1,10 @@
+import configparser
 from flask import Flask, render_template, flash, request, url_for, redirect, session, jsonify
 from flask_mail import Mail, Message
-from np_config_list import HostList
+from np_config_list import HostList # get rid of this
 import time
 from dbconnect import connection
 from checks import NP_DBStatus
-#from quick_q import total_endpoints
 from wtforms import Form, validators, PasswordField, StringField
 from passlib.hash import sha256_crypt
 from pymysql import escape_string as thwart
@@ -16,16 +16,18 @@ import secrets
 from secrets import token_urlsafe
 
 # Random Variables
-HOST_DICT = HostList()
+HOST_DICT = HostList() # and get rid of this
 time_now = time.strftime("%H:%M %m-%d-%Y")
 
 
 ####
 # Settings
 ####
-netpop_hostname = "http://localhost:5000"
-netpop_logging_to_console = 1
+config = configparser.ConfigParser()
+config.read('conf/config.ini')
 
+netpop_hostname = config['NETPOP']['HOSTNAME']
+netpop_logging_to_console = config['NETPOP']['LOG_TO_CONSOLE']
 
 
 # Logging Settings
@@ -50,8 +52,8 @@ app.config.update(
 	MAIL_SERVER='smtp.gmail.com',
 	MAIL_PORT=465,
 	MAIL_USE_SSL=True,
-	MAIL_USERNAME = 'netpopsimplemon@gmail.com',
-	MAIL_PASSWORD = 'password'
+	MAIL_USERNAME = config['EMAIL']['EMAIL_USERNAME'],
+	MAIL_PASSWORD = config['EMAIL']['EMAIL_PASSWORD']
 	)
 mail = Mail(app)
 
@@ -308,21 +310,6 @@ def login_page():
         return render_template("error.html", error=e)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Registration Page
 class RegistrationForm(Form):
     username = StringField('Username', [validators.Length(min=4, max=20)])
@@ -375,27 +362,7 @@ def register_page():
 
         #return render_template("error.html", error=e)
         return e
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
 
 # Forgot Password
 @app.route('/reset_password/', methods=["GET","POST"])

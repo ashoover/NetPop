@@ -1,10 +1,8 @@
 
 passhash.py
 query_check.py
-login.html.old
 *.wsgi
 *.log
 *.pyc
-__pycache__/quick_q.cpython-37.pyc
-netpop.log
+__pycache__/*
 netpop.log
