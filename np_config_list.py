@@ -21,5 +21,5 @@ def HostList():
         "server17":"192.168.2.110",
         "server18":"192.168.2.110",
         "server19":"192.168.2.110",
-        "server20":"192.168.2.110"}
+        "server21":"192.168.2.110"}
     return HOST_DICT

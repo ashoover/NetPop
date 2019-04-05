@@ -525,8 +525,23 @@ def monitor():
         
         return results
 
+    def host_list():
+        try:
+            c, conn = connection()
+            c.execute("SELECT endpoint_name FROM netpop.endpoints;")
+
+            results = [item[0] for item in c.fetchall()]
+
+            c.close()
+            conn.close()
+
+        except Exception:
+            results = 'e'
+
+        return results
+
     try:
-        return render_template("monitor.html",HOST_DICT=HOST_DICT,time_now=time_now,t_endpoints=total_endpoints(),down_endpoints=down_endpoints(),warn_endpoints=warning_endpoints())
+        return render_template("monitor.html",host_dict=host_list(),time_now=time_now,t_endpoints=total_endpoints(),down_endpoints=down_endpoints(),warn_endpoints=warning_endpoints())
     except Exception as e:
         if netpop_logging_to_console == 1:
             app.logger.error(e)
