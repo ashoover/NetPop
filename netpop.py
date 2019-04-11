@@ -289,6 +289,8 @@ def login_page():
 
                 if admin_check(session['username']):
                     session['admin_status'] = True
+                else:
+                    session['admin_status'] = False
 
                 c.execute("UPDATE users SET lastlogin=%s WHERE username=%s", (time.strftime("%H:%M:%S %m-%d-%Y") , secure_un))
                 conn.commit()
