@@ -11,18 +11,73 @@
     </nav>
 
     <div class="container-fluid grid-fix">
+       <p class="display-4">My Account</p>
 
-        <br>
-        <p class="display-4">My Account</p>
-        <br>
-        <p>Account Settings and Information</p>
-        <br>
-        <p>Change Password</p>
-        <br>
-        <p>Personal Info</p>
-        <br>
-        <p>Contact Groups</p>
-        
+       <div class="accordion" id="accordionSettings">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" style="text-decoration: none; color: black;" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Account Settings & Information
+                    </button>
+                </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSettings">
+                    <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                    <li class="list-group-item borderless">Name :</li>
+                    <li class="list-group-item borderless">Email :</li>
+                    <li class="list-group-item borderless">Username :</li>
+                    <li class="list-group-item borderless">Roles :</li>
+                    <li class="list-group-item borderless">Last Login :</li>
+                    </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" style="text-decoration: none; color: black;" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Change Password
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSettings">
+                    <div class="card-body">
+                        <form action="" class="form-inline" method="post">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item borderless"><input type="password" class="form-control" placeholder="Old Password" name="old_password" value="{{ request.form.old_password }}"></li>
+                                <li class="list-group-item borderless"><input type="password" class="form-control" placeholder="Password" name="password" value="{{ request.form.password }}"></li>
+                                <li class="list-group-item borderless"><input type="password" class="form-control" placeholder="Confirm Password" name="c_password" value="{{ request.form.c_password }}"></li>
+                                <li class="list-group-item borderless"><input class="btn btn-default" type="submit" value="Change Password"></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree">
+                    <h2 class="mb-0">
+                        <button class="btn btn-link collapsed" style="text-decoration: none; color: black;" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Contact Groups
+                        </button>
+                    </h2>
+                </div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSettings">
+                    <div class="card-body">
+                        <ul class="list-group">
+                          <li class="list-group-item">Cras justo odio</li>
+                          <li class="list-group-item">Dapibus ac facilisis in</li>
+                          <li class="list-group-item">Morbi leo risus</li>
+                          <li class="list-group-item">Porta ac consectetur ac</li>
+                          <li class="list-group-item">Vestibulum at eros</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
 
     </div>
 

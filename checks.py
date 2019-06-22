@@ -1,5 +1,6 @@
 from dbconnect import connection
 
+
 def NP_DBStatus():
     try :
         conn = connection()
