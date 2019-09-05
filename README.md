@@ -22,7 +22,7 @@ Table info in db_setup.sql.  I probably wouldn't use that yet as it's not up to 
 
 Ranks :
  - 0  Disabled Account
- - 1  Guest (No-Access)
+ - 1  Guest (No-Access - to be used later)
  - 2  Monitor - Monitor Page Access Only (Default)
  - 3  Administrator (Settings Page Access BUT must be set manually in the db)
 

@@ -14,7 +14,7 @@
     <div class="card">
     <div class="card-body text-center text-warning">
       <h5 class="card-title">Endpoint Warnings</h5>
-      <p class="card-text h1">2</p>
+      <p class="card-text h1">{{ warn_endpoints }}</p>
     </div>
   </div>
   <div class="card">
@@ -38,11 +38,19 @@
                         </tr>
                     </thead>
                     <tbody>
-                    {% for host in host_dict %}
+                    {% for host in host_l %}
                         <tr class="">
-                        <td><a href="#" style="text-decoration: none; color: black;">{{ host }}</a></td>
-                        <td>{{ time_now }}</td>
-                        <td>Online</td>
+                        <td><a href="#" style="text-decoration: none; color: black;">{{ host[2] }}</a></td>
+                        <td>{{ host[0] }}</td>
+                        {% if host[1] == 1 %}
+                          <td data-toggle="tooltip" data-html="true" data-placement="top" title="<em>22</em><i>ms</i> Response" style="color:green;">Online</td>
+                        {% elif host[1] == 0 %}
+                          <td style="color:red;">Offline</td>
+                        {% elif host[1] == 2 %}
+                          <td data-toggle="tooltip" data-html="true" data-placement="top" title="<em>22</em><i>ms</i> Response" style="color:orange;">Warning</td>
+                        {% else %}
+                          <td>NA</td>
+                        {% endif %}
                         </tr>
                     {%- endfor %}
                     </tbody>

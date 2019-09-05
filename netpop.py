@@ -29,7 +29,7 @@ netpop_hostname = config['NETPOP']['HOSTNAME']
 netpop_logging_to_console = config['NETPOP']['LOG_TO_CONSOLE']
 
 # Logging Settings
-if netpop_logging_to_console == 1:
+if netpop_logging_to_console:
     import logging
 
     logging.basicConfig(level=logging.DEBUG,
@@ -108,35 +108,50 @@ def token_check(c_token):
     return token_status
 
 
-# Logs alerts and emails to cont_log table
-def contact_log(recip, message_type):
-    try:
-        c, conn = connection()
 
-        c.execute("INSERT INTO cont_log (recipient, date_sent, message_type) VALUES (%s, %s, %s)",
-                  (thwart(recip), thwart(time.strftime("%H:%M:%S %m-%d-%Y")), thwart(message_type)))
-        conn.commit()
-
-    except Exception as e:
-        if netpop_logging_to_console == 1:
-            app.logger.error(e)
-
-    c.close()
-    conn.close()
-    gc.collect()
 
 
 # Send Email
 def send_mail(rec, u_name, msg_type):
     email_cont = []
 
+    # Logs alerts and emails to cont_log table
+    def contact_log(recip, message_type):
+        try:
+            c, conn = connection()
+
+            c.execute("INSERT INTO cont_log (recipient, date_sent, message_type) VALUES (%s, %s, %s)",
+                    (thwart(recip), 
+                     time.strftime("%H:%M:%S %m-%d-%Y"), 
+                     message_type),)
+
+            conn.commit()
+
+            print(f"Message sent to {recip} as {message_type} and logged to db")
+
+        except Exception as e:
+            if netpop_logging_to_console:
+                app.logger.error(e)
+
+        c.close()
+        conn.close()
+        gc.collect()
+
+
     def message_type():
         if msg_type.lower() == "new_user":
 
             msg_subject = "Welcome to Netpops!"
+            msg_html = f'<p>Hey {u_name.capitalize()}!\
+                <br>\
+                Welcome to NetPops {u_name.capitalize()}!\
+                <br>\
+                Thanks!\
+                <br>\
+                NetPop</p>'
             msg_body = f"Welcome to Netpops and Thanks for registering {u_name.capitalize()}!"
 
-            msg = [msg_subject, msg_body]
+            msg = [msg_subject, msg_body, msg_html]
 
             print("Welcome Email Sent.")
 
@@ -195,21 +210,23 @@ def send_mail(rec, u_name, msg_type):
             return msg
 
         else:
-            if netpop_logging_to_console == 1:
+            if netpop_logging_to_console:
                 app.logger.error(e)
 
     email_cont = message_type()
 
     try:
-        msg = Message(email_cont[0], sender="noreply@netpopsimplemon.com", recipients=[rec])
+        msg = Message(email_cont[0], sender="netpops@digidogsolutions.com", recipients=[rec,])
         msg.body = email_cont[1]
         msg.html = email_cont[2]
         mail.send(msg)
 
-        contact_log(rec, msg_type)
+        print("calling contact_log function")
+        contact_log(rec, message_type)
+        print("contact_log function has completed.")
 
     except Exception as e:
-        if netpop_logging_to_console == 1:
+        if netpop_logging_to_console:
             app.logger.error(e)
 
 
@@ -375,7 +392,7 @@ def register_page():
         return render_template("register.html", form=form)
 
     except Exception as e:
-        if netpop_logging_to_console == 1:
+        if netpop_logging_to_console:
             app.logger.error(e)
 
         # return render_template("error.html", error=e)
@@ -515,7 +532,7 @@ def monitor():
     def down_endpoints():
         try:
             c, conn = connection()
-            c.execute("SELECT count(*) FROM endpoint_log WHERE endpoint_alive is FALSE;")
+            c.execute("SELECT count(*) FROM endpoints WHERE endpoint_status = 0;")
 
             results = c.fetchone()
             results = results[0]
@@ -531,7 +548,7 @@ def monitor():
     def warning_endpoints():
         try:
             c, conn = connection()
-            c.execute("SELECT count(*) FROM endpoint_log WHERE warning is FALSE;")
+            c.execute("SELECT count(*) FROM endpoints WHERE endpoint_status = 2;")
 
             results = c.fetchone()
             results = results[0]
@@ -547,9 +564,9 @@ def monitor():
     def host_list():
         try:
             c, conn = connection()
-            c.execute("SELECT endpoint_name FROM netpop.endpoints;")
+            c.execute("SELECT last_check, endpoint_status, endpoint_name FROM netpop.endpoints;")
 
-            results = [item[0] for item in c.fetchall()]
+            results = c.fetchall()
 
             c.close()
             conn.close()
@@ -560,10 +577,10 @@ def monitor():
         return results
 
     try:
-        return render_template("monitor.html", host_dict=host_list(), time_now=time_now, t_endpoints=total_endpoints(),
+        return render_template("monitor.html", host_l=host_list(), time_now=time_now, t_endpoints=total_endpoints(),
                                down_endpoints=down_endpoints(), warn_endpoints=warning_endpoints())
     except Exception as e:
-        if netpop_logging_to_console == 1:
+        if netpop_logging_to_console:
             app.logger.error(e)
 
         # return render_template("error.html", error=e)
@@ -623,8 +640,10 @@ def add_endpoint():
             zip_code = form.zip_code.data
 
             x = c.execute("SELECT * FROM endpoints WHERE hostname = %s", (hostname,))
+            print(f"Hostname used is :'{hostname}'")
 
             if int(x) > 0:
+                print(x)
                 flash(f"{endpoint_name.capitalize()} is already in the system.")
                 return render_template("add_endpoint.html", form=form)
 
@@ -645,7 +664,7 @@ def add_endpoint():
         return render_template("add_endpoint.html", form=form)
 
     except Exception as e:
-        if netpop_logging_to_console == 1:
+        if netpop_logging_to_console:
             app.logger.error(e)
 
         return render_template("error.html", error=e)
@@ -740,4 +759,4 @@ def server_issue(e):
 
 # Main App
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

@@ -6,3 +6,9 @@ query_check.py
 *.pyc
 __pycache__/*
 netpop.log
+.idea/workspace.xml
+.idea/modules.xml
+.idea/NetPop.iml
+.idea/vcs.xml
+__pycache__/checks.cpython-37.pyc
+__pycache__/np_config_list.cpython-37.pyc
