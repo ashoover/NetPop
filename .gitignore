@@ -12,3 +12,12 @@ netpop.log
 .idea/vcs.xml
 __pycache__/checks.cpython-37.pyc
 __pycache__/np_config_list.cpython-37.pyc
+conf/config.ini
+dbconnect.py
+multi_checker.py
+tonight_work.py
+__pycache__/np_config_list.cpython-37.pyc
+__pycache__/dbconnect.cpython-37.pyc
+__pycache__/checks.cpython-37.pyc
+.vscode/settings.json
+__pycache__/checks.cpython-37.pyc
