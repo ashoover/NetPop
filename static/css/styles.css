@@ -62,3 +62,46 @@ li.borderless {
     border-top: 0 none;
     border-bottom: 0 none;
     }
+
+.profile-image {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+}
+
+.brand-logo {
+    width: 30px; 
+    height: 30px; 
+    margin-right: 10px;
+}
+
+.timer-dropdown {
+    width: 25em;
+}
+
+.link_style {
+    text-decoration: none;
+    color: black;
+}
+
+.link_style:hover  {
+    text-decoration: none;
+    color: #000;
+}
+
+a.link_style {
+    text-decoration: none;
+    color: #000;
+}
+
+.droparea {
+    width: 85%;
+    height: 200px;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: grey;
+    float: left;
+    line-height: 200px;
+    text-align: center;
+}

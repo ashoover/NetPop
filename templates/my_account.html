@@ -26,11 +26,15 @@
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionSettings">
                     <div class="card-body">
                     <ul class="list-group list-group-flush">
-                    <li class="list-group-item borderless">Name :</li>
-                    <li class="list-group-item borderless">Email :</li>
-                    <li class="list-group-item borderless">Username :</li>
-                    <li class="list-group-item borderless">Roles :</li>
-                    <li class="list-group-item borderless">Last Login :</li>
+                    <li class="list-group-item borderless">First Name : {{ user_results[0] }}</li>
+                    <li class="list-group-item borderless">Last Name : {{ user_results[1] }}</li>
+                    <li class="list-group-item borderless">Email : {{ user_results[2] }}</li>
+                    <li class="list-group-item borderless">Username : {{ c_user }}</li>
+                    <li class="list-group-item borderless">Roles : </li>
+                    <li class="list-group-item borderless">Last Login : {{ user_results[3] }}</li>
+                    <li class="list-group-item borderless">Last Invalid Login : {{ user_results[4] }}</li>
+                    <li class="list-group-item borderless">Account Creation : {{ user_results[5] }}</li>
+                    <li class="list-group-item borderless">Timezone : {{ user_results[6] }}</li>
                     </ul>
                     </div>
                 </div>
@@ -68,11 +72,9 @@
                 <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSettings">
                     <div class="card-body">
                         <ul class="list-group">
-                          <li class="list-group-item">Cras justo odio</li>
-                          <li class="list-group-item">Dapibus ac facilisis in</li>
-                          <li class="list-group-item">Morbi leo risus</li>
-                          <li class="list-group-item">Porta ac consectetur ac</li>
-                          <li class="list-group-item">Vestibulum at eros</li>
+                          <li class="list-group-item"><a style="text-decoration: none; color: black;" href="#">Add Contact Group</a></li>
+                          <li class="list-group-item"><a style="text-decoration: none; color: black;" href="#">Edit Contact Group</a></li>
+                          <li class="list-group-item"><a style="text-decoration: none; color: black;" href="#">Contact Group Tree</a></li>
                         </ul>
                     </div>
                 </div>

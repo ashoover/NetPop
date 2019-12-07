@@ -10,7 +10,24 @@
     </nav>
 
     <div class="container-fluid grid-fix">
-        <p class="display-4">Endpoint #</p>
+        <p class="display-4">Endpoint: {{ endpoint_info[9] }}</p>
+
+        <p><b>Endpoint Name : </b>{{ endpoint_info[9] }}</p>
+        <p><b>Endpoint Hostname : </b>{{ endpoint_info[1] }}</p>
+        <p><b>Endpoint IP : </b>{{ endpoint_info[2] }}</p>
+        <p><b>Last Checked : </b>{{ endpoint_info[4] }}</p>
+        <p><b>Enabled : </b>{{ endpoint_info[5] }}</p>
+        {% if endpoint_info[5] == 1 %}
+            <p><b>Enabled Date : </b>{{ endpoint_info[6] }}</p>
+        {% elif endpoint_info[5] == 0 %}
+            <p><b>Disabled Date : </b>{{ endpoint_info[6] }}</p>
+        {% else %}
+            pass
+        {% endif %}
+        <p><b>Creation Date : </b>{{ endpoint_info[8] }}</p>
+        <p><b>Next Check : </b>{{ endpoint_info[10] }}</p>
+        <p><b>Check Interval : </b>every {{ endpoint_info[12] }} seconds</p>
+
 
 
     </div>

@@ -22,6 +22,7 @@ def down_endpoints():
         c.execute("SELECT count(*) FROM endpoint_log WHERE endpoint_alive is FALSE;")
 
         results = c.fetchone()
+        print(results)
         results = results[0]
 
         c.close()

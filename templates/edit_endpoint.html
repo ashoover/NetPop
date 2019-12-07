@@ -15,6 +15,33 @@
         <br>
         <p class="display-4">Edit an Endpoint:</p>
         <br>
+        <p class="display-5">Click the endpoint you would like to edit :</p>
+
+        <div class="table-responsive">
+                <table class="table table-sm table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Host</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for host in ehost_l %}
+                        <tr class="">
+                        {% set e_url = 'http://localhost:5000/endpoint/' + host[0] %}
+                        <td><a href={{ e_url }} style="text-decoration: none; color: black;">{{ host[0] }}</a></td>
+                        {% if host[1] == 1 %}
+                          <td style="color:green;">Enabled</td>
+                        {% elif host[1] == 0 %}
+                          <td style="color:red;">Disabled</td>
+                        {% else %}
+                          <td>NA</td>
+                        {% endif %}
+                    {%- endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
 
     </div>

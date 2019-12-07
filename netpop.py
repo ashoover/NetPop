@@ -1,11 +1,10 @@
 import configparser
 from flask import Flask, render_template, flash, request, url_for, redirect, session, jsonify
 from flask_mail import Mail, Message
-from np_config_list import HostList  # get rid of this
 import time
 from dbconnect import connection
 from checks import NP_DBStatus
-from wtforms import Form, validators, PasswordField, StringField
+from wtforms import Form, validators, PasswordField, StringField, SelectField
 from passlib.hash import sha256_crypt
 from pymysql import escape_string as thwart
 import gc
@@ -16,17 +15,16 @@ import secrets
 from secrets import token_urlsafe
 
 # Random Variables
-HOST_DICT = HostList()  # and get rid of this
 time_now = time.strftime("%H:%M %m-%d-%Y")
 
-####
-# Settings
-####
+############
+# Settings #
+############
 config = configparser.ConfigParser()
 config.read('conf/config.ini')
 
-netpop_hostname = config['NETPOP']['HOSTNAME']
-netpop_logging_to_console = config['NETPOP']['LOG_TO_CONSOLE']
+netpop_hostname = config['SKIMMER']['HOSTNAME']
+netpop_logging_to_console = config['SKIMMER']['LOG_TO_CONSOLE']
 
 # Logging Settings
 if netpop_logging_to_console:
@@ -302,10 +300,12 @@ def login_page():
         if request.method == "POST":
             secure_un = thwart(request.form['username'], )
 
-            data = c.execute("SELECT * FROM users WHERE username = %s", secure_un)
-            data = c.fetchone()[5]
+            def list_return():
+                data = c.execute("SELECT * FROM users WHERE username = %s", secure_un)
+                data = c.fetchone()[5]
+                return data
 
-            if sha256_crypt.verify(request.form['password'], data):
+            if sha256_crypt.verify(request.form['password'], list_return()):
                 session['logged_in'] = True
                 session['username'] = request.form['username']
 
@@ -622,7 +622,16 @@ class AddEndpointForm(Form):
     hostname = StringField('Hostname')
     ip_addr = StringField('IP Address')
     zip_code = StringField('Zip Code')
-
+    check_type = SelectField('Check Type', choices = [('ping', 'Ping this endpoint'), 
+                                                      ('http', 'Check the status code of this Website'), 
+                                                      ('content', 'Check if content missing or changed from a website.'),
+                                                      ('port','Check if a port is open or not on this endpoint.')])
+    check_interval = SelectField('Check Interval', choices = [('60', 'Every 1 Minute'),
+                                                              ('300', 'Every 5 Minute'), 
+                                                              ('900', 'Every 15 Minute'),
+                                                              ('1800', 'Every 30 Minute'),
+                                                              ('3600','Every 1 hour'),
+                                                              ('86400','Every Day')])
 
 @app.route('/add_endpoint/', methods=["GET", "POST"])
 @login_required
@@ -638,6 +647,10 @@ def add_endpoint():
             hostname = form.hostname.data
             ip_addr = form.ip_addr.data
             zip_code = form.zip_code.data
+            check_type = form.check_type.data
+            check_interval = form.check_interval.data
+            c_enabled = 1
+            cc_time = time.strftime("%H:%M:%S %m-%d-%Y")
 
             x = c.execute("SELECT * FROM endpoints WHERE hostname = %s", (hostname,))
             print(f"Hostname used is :'{hostname}'")
@@ -649,12 +662,29 @@ def add_endpoint():
 
             else:
                 c.execute(
-                    "INSERT INTO endpoints (endpoint_name, hostname, ip, zip, creation_date) VALUES (%s, %s, %s, %s, %s)",
+                    "INSERT INTO endpoints (endpoint_name, \
+                                            hostname, \
+                                            ip, \
+                                            zip, \
+                                            check_type, \
+                                            enabled, \
+                                            check_interval, \
+                                            last_check, \
+                                            next_check, \
+                                            enabled_date, \
+                                            creation_date) \
+                                            VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
                     (thwart(endpoint_name),
                      thwart(hostname),
                      thwart(ip_addr),
                      thwart(zip_code),
-                     time.strftime("%H:%M:%S %m-%d-%Y")))
+                     thwart(check_type),
+                     c_enabled,
+                     check_interval,
+                     cc_time,
+                     cc_time,
+                     cc_time,
+                     cc_time))
                 conn.commit()
 
             flash(f"{endpoint_name.capitalize()} has been added!")
@@ -670,14 +700,30 @@ def add_endpoint():
         return render_template("error.html", error=e)
 
 
+@app.route('/multi_endpoint_import/')
+@login_required
+@admin_required
+def multi_endpoint_import():
+    return render_template("multi_endpoint_import.html")
+
+
 # My Profile/Account Settings
 @app.route('/my_account/')
 @login_required
 def my_account():
-    return render_template("my_account.html")
+    try:
+        c, conn = connection()
+
+        data = c.execute("SELECT firstname, lastname, email, lastlogin, last_invalid_login, account_creation, user_timezone FROM users WHERE username LIKE %s", session['username'])
+        results = c.fetchone()
+
+        return render_template("my_account.html", user_results=results, c_user=session['username'])
+
+    except Exception as e:
+        return render_template("error.html", error=e)
 
 
-# NetPop User Management Page (admin only)
+# User Management Page (admin only)
 @app.route('/user_management/')
 @login_required
 @admin_required
@@ -694,12 +740,53 @@ def user_management():
         return render_template("error.html", error=e)
 
 
-# NetPop Endpoint Management Page (admin only)
-@app.route('/endpoint/')
+# Edit Accounts (admin only)
+@app.route('/edit_account/')
 @login_required
 @admin_required
-def endpoint():
-    return render_template("endpoint.html")
+def edit_account():
+    return render_template("edit_account.html")
+
+
+# Contact Pages Settings
+@app.route('/contacts/')
+@login_required
+def contacts():
+    try:
+        return render_template("contacts.html")
+
+    except Exception as e:
+        return render_template("error.html", error=e)
+
+
+@app.route('/contact_groups/')
+@login_required
+def contact_groups():
+    try:
+        return render_template("contact_groups.html")
+
+    except Exception as e:
+        return render_template("error.html", error=e)
+
+
+# Endpoint Management Page (admin only)
+@app.route('/endpoint/<endpoint_name>')
+@login_required
+@admin_required
+def endpoint(endpoint_name):
+    try:
+        c, conn = connection()
+        c.execute("SELECT * FROM netpop.endpoints WHERE endpoint_name LIKE %s", endpoint_name)
+
+        results = c.fetchone()
+
+        c.close()
+        conn.close()
+
+        return render_template("endpoint.html", endpoint_info=results)
+
+    except Exception as e:
+        return render_template("error.html", error=e)
 
 
 ##### Playground ######
@@ -724,19 +811,27 @@ def background_process():
 
 ###### End of Playground ########
 
-# Edit Endpoint
-@app.route('/edit_endpoint/', methods=['GET', 'POST'])
+# Edit Endpoint Selection List
+@app.route('/edit_endpoint/')
 @login_required
 @admin_required
 def edit_endpoint():
     try:
-        return render_template("edit_endpoint.html")
+        c, conn = connection()
+        c.execute("SELECT endpoint_name, endpoint_status FROM netpop.endpoints;")
+
+        results = c.fetchall()
+
+        c.close()
+        conn.close()
+
+        return render_template("edit_endpoint.html", ehost_l=results)
 
     except Exception as e:
         return render_template("error.html", error=e)
 
 
-# Error Handling
+# Error Handling Pages
 @app.route('/access_denied/')
 def access_denied():
     return render_template("access_denied.html")
